@@ -1,0 +1,14 @@
+<div>
+	<div id="map"></div>
+	<div id="input">
+		<input ng-model='query' placeholder='Search a Bar' autofocus='true'>
+		<img src="img/search_icon.png" id="search-icon">
+	</div>
+	<div id="bar-list">
+		<ul>
+			<li ng-repeat='bar in bars | filter:query' ng-show='query.length > 0' ng-animate='listshow'>
+				<a href="#/bars/{{bar.id}}" ng-click='printName(bar.name)'><p>{{bar.name}} </br><span>{{bar.address}}</span></p></a>
+			</li>
+		</ul>
+	</div>
+</div>

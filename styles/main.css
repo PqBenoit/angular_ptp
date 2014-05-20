@@ -1,0 +1,75 @@
+html {
+  background-color: #333333;
+}
+html body {
+  margin: 0px;
+}
+html body #map,
+html body #map-bar {
+  height: 500px;
+  width: 100%;
+  background-color: red;
+}
+html body #input {
+  width: 350px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 3%;
+}
+html body #input input {
+  background: transparent;
+  border: 0;
+  outline: none;
+  width: 260px;
+  height: 50%;
+  font-size: 32px;
+  font-family: 'Montserrat';
+  color: #ffe02d;
+  border-right: solid 1px #888888;
+  opacity: 0.99;
+  font-size: 100;
+  float: left;
+}
+html body #input ::-webkit-input-placeholder {
+  color: #888888;
+  opacity: 0.5;
+}
+html body #input #search-icon {
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 45px;
+  height: 45px;
+  overflow: hidden;
+}
+html body #bar-list {
+  width: 350px;
+  height: auto;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+html body #bar-list ul {
+  margin-top: 0px;
+  padding-left: 0px;
+}
+html body #bar-list ul li {
+  list-style: none;
+  border-bottom: solid 1px rgba(255, 224, 45, 0.5);
+}
+html body #bar-list ul li a {
+  text-decoration: none;
+}
+html body #bar-list ul li a p {
+  padding-left: 5px;
+  font-family: 'Montserrat';
+  font-size: 22px;
+  color: #888888;
+  -webkit-transition: color 0.4s;
+  font-size: 100;
+}
+html body #bar-list ul li a p span {
+  font-size: 14px;
+}
+html body #bar-list ul li a:hover p {
+  color: #ffe02d;
+  -webkit-transition: color 0.4s;
+}
