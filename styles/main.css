@@ -3,20 +3,38 @@ html {
 }
 html body {
   margin: 0px;
+  height: 100%;
+  width: 100%;
 }
 html body #map,
 html body #map-bar {
   height: 500px;
   width: 100%;
-  background-color: red;
+  text-align: center;
+  display: table;
 }
-html body #input {
-  width: 350px;
-  height: 100px;
+html body #map .ctn-center,
+html body #map-bar .ctn-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+html body #map img,
+html body #map-bar img {
+  width: 40px;
+  height: 40px;
   margin: 0 auto;
-  margin-top: 3%;
 }
-html body #input input {
+html body #list-container {
+  width: 100%;
+  height: auto;
+}
+html body #list-container #input {
+  width: 350px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 1%;
+}
+html body #list-container #input input {
   background: transparent;
   border: 0;
   outline: none;
@@ -30,35 +48,35 @@ html body #input input {
   font-size: 100;
   float: left;
 }
-html body #input ::-webkit-input-placeholder {
+html body #list-container #input ::-webkit-input-placeholder {
   color: #888888;
   opacity: 0.5;
 }
-html body #input #search-icon {
+html body #list-container #input #search-icon {
   margin-left: 20px;
   margin-top: 4px;
   width: 45px;
   height: 45px;
   overflow: hidden;
 }
-html body #bar-list {
+html body #list-container #bar-list {
   width: 350px;
-  height: auto;
+  height: 200px;
   margin: 0 auto;
   overflow-y: auto;
 }
-html body #bar-list ul {
+html body #list-container #bar-list ul {
   margin-top: 0px;
   padding-left: 0px;
 }
-html body #bar-list ul li {
+html body #list-container #bar-list ul li {
   list-style: none;
   border-bottom: solid 1px rgba(255, 224, 45, 0.5);
 }
-html body #bar-list ul li a {
+html body #list-container #bar-list ul li a {
   text-decoration: none;
 }
-html body #bar-list ul li a p {
+html body #list-container #bar-list ul li a p {
   padding-left: 5px;
   font-family: 'Montserrat';
   font-size: 22px;
@@ -66,10 +84,13 @@ html body #bar-list ul li a p {
   -webkit-transition: color 0.4s;
   font-size: 100;
 }
-html body #bar-list ul li a p span {
+html body #list-container #bar-list ul li a p span {
   font-size: 14px;
 }
-html body #bar-list ul li a:hover p {
+html body #list-container #bar-list ul li a:hover p {
   color: #ffe02d;
   -webkit-transition: color 0.4s;
+}
+.listshow {
+  margin-top: 500px;
 }
