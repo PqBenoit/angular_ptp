@@ -63,7 +63,29 @@ ptpApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http,
 						map: $scope.map
 				)
 				i++
-		
+
+			input = document.getElementById('searchbox-input')
+
+			searchBox = new google.maps.places.SearchBox(input)
+
+			console.log 'hello'
+
+			google.maps.event.addListener searchBox, "places_changed", ->
+				console.log 'hello'
+				places = searchBox.getPlaces()
+				bounds = new google.maps.LatLngBounds()
+
+				`
+				for (var i = 0, place; place = places[i]; i++) {
+					bounds.extend(place.geometry.location);
+				}
+				`
+				
+				console.log 'hello'
+				console.log 'places'
+
+				$scope.map.fitBounds(bounds)
+				$scope.map.setZomm(15)
 	)
 ]
 

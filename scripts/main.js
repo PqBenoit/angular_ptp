@@ -18,7 +18,7 @@
         }
         i = 0;
         return geolocation.getLocation().then(function(data) {
-          var featuresOpts, iconUrl, mapOptions, marker, markerIcon, _results;
+          var featuresOpts, iconUrl, input, mapOptions, marker, markerIcon, searchBox;
           $scope.coords = {
             lat: data.coords.latitude,
             lng: data.coords.longitude
@@ -55,16 +55,32 @@
           $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
           iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png';
           markerIcon = new google.maps.MarkerImage(iconUrl, null, null, null, new google.maps.Size(34, 44));
-          _results = [];
           while (i < $scope.bars.length) {
             marker = new google.maps.Marker({
               position: new google.maps.LatLng(latTab[i], lngTab[i]),
               icon: markerIcon,
               map: $scope.map
             });
-            _results.push(i++);
+            i++;
           }
-          return _results;
+          input = document.getElementById('searchbox-input');
+          searchBox = new google.maps.places.SearchBox(input);
+          console.log('hello');
+          return google.maps.event.addListener(searchBox, "places_changed", function() {
+            var bounds, places;
+            console.log('hello');
+            places = searchBox.getPlaces();
+            bounds = new google.maps.LatLngBounds();
+            
+				for (var i = 0, place; place = places[i]; i++) {
+					bounds.extend(place.geometry.location);
+				}
+				;
+            console.log('hello');
+            console.log('places');
+            $scope.map.fitBounds(bounds);
+            return $scope.map.setZomm(15);
+          });
         });
       });
     }

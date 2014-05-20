@@ -6,6 +6,59 @@ html body {
   height: 100%;
   width: 100%;
 }
+html body header {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+html body header #searchbox {
+  margin-top: 7px;
+  margin-left: 15px;
+  float: left;
+}
+html body header #ptp-logo {
+  overflow: hidden;
+  width: 80%;
+  margin-left: 30%;
+  margin: auto;
+  float: left;
+}
+html body header #ptp-logo img {
+  width: 175px;
+  height: 24px;
+  margin-top: 7px;
+}
+html body header #input {
+  overflow: hidden;
+  height: 35px;
+  margin: 0;
+  position: fixed;
+  right: 0;
+}
+html body header #input input {
+  margin-top: 7px;
+  background: transparent;
+  border: 0;
+  width: 150px;
+  outline: none;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: #ffe02d;
+  opacity: 0.99;
+  font-size: 100;
+  float: left;
+}
+html body header #input ::-webkit-input-placeholder {
+  color: #888888;
+  opacity: 0.5;
+}
+html body header #input #search-icon {
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
 html body #map,
 html body #map-bar {
   height: 500px;
@@ -27,37 +80,6 @@ html body #map-bar img {
 html body #list-container {
   width: 100%;
   height: auto;
-}
-html body #list-container #input {
-  width: 350px;
-  height: auto;
-  margin: 0 auto;
-  margin-top: 1%;
-}
-html body #list-container #input input {
-  background: transparent;
-  border: 0;
-  outline: none;
-  width: 260px;
-  height: 50%;
-  font-size: 32px;
-  font-family: 'Montserrat';
-  color: #ffe02d;
-  border-right: solid 1px #888888;
-  opacity: 0.99;
-  font-size: 100;
-  float: left;
-}
-html body #list-container #input ::-webkit-input-placeholder {
-  color: #888888;
-  opacity: 0.5;
-}
-html body #list-container #input #search-icon {
-  margin-left: 20px;
-  margin-top: 4px;
-  width: 45px;
-  height: 45px;
-  overflow: hidden;
 }
 html body #list-container #bar-list {
   width: 350px;
