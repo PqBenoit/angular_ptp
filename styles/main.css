@@ -14,6 +14,9 @@ html body #map-container {
   margin: 0 auto;
   overflow: hidden;
 }
+html body #map-container #responsive-header {
+  display: none;
+}
 html body #map-container #header {
   width: 100%;
   height: 41px;
@@ -105,4 +108,25 @@ html body #map-container #list-container ul li a p {
 }
 html body #map-container #list-container ul li a p span {
   font-size: 16px;
+}
+@media (max-width: 600px) {
+  html body #map-container #responsive-header {
+    display: block;
+    width: 15%;
+    height: 100%;
+    background-color: #333333;
+    z-index: 100;
+  }
+  html body #map-container #responsive-header ul {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  html body #map-container #responsive-header ul li {
+    height: 16.67%;
+    border-bottom: solid 1px white;
+  }
+  html body #map-container #header {
+    display: none;
+  }
 }
