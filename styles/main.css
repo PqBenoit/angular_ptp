@@ -26,14 +26,34 @@ html body #map-container #header {
   position: absolute;
   background-color: rgba(51, 51, 51, 0.9);
 }
+html body #map-container #header #bg_menu {
+  background-color: rgba(51, 51, 51, 0.9);
+  z-index: 1001;
+  height: 2000px;
+  width: 80%;
+}
+html body #map-container #header #bg_menu #block {
+  width: 90%;
+}
+html body #map-container #header #menu_left {
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  height: 2000px;
+  width: 100%;
+  z-index: 1000;
+}
+html body #map-container #header #menu_left img {
+  margin-right: 0;
+  margin: 8px;
+  width: 190px;
+}
 html body #map-container #header div {
   height: 40px;
   padding: 0;
   margin: 0;
   list-style-type: none;
   text-align: center;
-  display: inline;
-  width: 33.3%;
+  width: 100%;
   float: left;
   display: inline-block;
 }
@@ -43,10 +63,11 @@ html body #map-container #header div input {
   height: 20px;
   background-color: rgba(255, 255, 255, 0.05);
   border: none;
+  width: 90%;
   color: #ffe02d;
+  margin: 12px;
   border-radius: 15px;
   border: solid 1px rgba(255, 255, 255, 0.2);
-  margin: 8px;
 }
 html body #map-container #header div input ::-webkit-input-placeholder {
   /* WebKit browsers */
@@ -73,10 +94,15 @@ html body #map-container #map {
   z-index: 10;
   text-align: center;
 }
+html body #map-container #map .ctn-center {
+  position: absolute;
+  top: 36%;
+  left: 50%;
+}
 html body #map-container #list-container {
   height: 25%;
   width: 100%;
-  z-index: 100;
+  z-index: 10;
   bottom: 0;
   left: 0;
   position: absolute;
