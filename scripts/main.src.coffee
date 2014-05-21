@@ -151,3 +151,4 @@ ptpApp.config ['$routeProvider',
 			controller: 'BarDetailCtrl'
 		).otherwise redirectTo: '/bars'
 ]
+

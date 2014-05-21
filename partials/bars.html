@@ -1,0 +1,35 @@
+<div id="map-container">
+	<div id="responsive-header">
+		<ul>
+			<li ng-click='toggle = !toggle'>C</li>
+			<li>B</li>
+			<li>P</li>
+			<li>FB</li>
+			<li>SL</li>
+			<li>BL</li>
+		</ul>
+	</div>
+	<div id="header">
+		    <div id="searchbox">
+				<input id="searchbox-input" placeholder='Check a City'>
+			</div>
+			<div id='ptp-logo'>
+				<img src='img/logo.png'>
+			</div>
+			<div id="search-bar">
+				<input ng-model='query' placeholder='Search a Bar'>
+			</div>
+	</div>
+	<div id="map">
+		<div class='ctn-center'>
+			<img src="img/loader.gif">
+		</div>
+	</div>
+	<div id='list-container' ng-show='!toggle'>
+		<ul>
+			<li ng-repeat='bar in bars | filter:query | filter:price' ng-animate='listshow'>
+				<a href="#/bars/{{bar.id}}" ng-click='printName(bar.name)'><p>{{bar.name}}, {{bar.price}}€</br><span>{{bar.address}}</span></p></a>
+			</li>
+		</ul>
+	</div>
+</div>
