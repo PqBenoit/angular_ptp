@@ -40,7 +40,7 @@ ptpApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http,
 				mapTypeId: google.maps.MapTypeId.TERRAIN
 				styles: featuresOpts
 				panControl: false
-				zoomControl: true
+				zoomControl: false
 				mapTypeControl: false
 				scaleControl: false
 				streetViewControl: false
@@ -80,7 +80,7 @@ ptpApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http,
 					bounds.extend(place.geometry.location);
 				}
 				`
-				
+
 				console.log 'hello'
 				console.log 'places'
 
@@ -124,7 +124,7 @@ ptpApp.controller 'BarDetailCtrl', ['$scope', '$routeParams', '$rootScope', '$ht
 					mapTypeId: google.maps.MapTypeId.ROAD
 					styles: featuresOpts
 					panControl: false
-					zoomControl: true
+					zoomControl: false
 					mapTypeControl: false
 					scaleControl: false
 					streetViewControl: false

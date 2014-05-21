@@ -1,25 +1,49 @@
-<header>
-	<div id='searchbox'>
-		<input id="searchbox-input" placeholder='Check a City'>
-	</div>
-	<div id='ptp-logo'>
-		<img src="img/logo.png">
-	</div>
-	<div id="input">
-		<input ng-model='query' placeholder='Search a Bar' autofocus='true'>
-		<!-- <img src="img/search_icon.png" id="search-icon"> -->
-	</div>
-</header>
-<div id="map">
-	<div class='ctn-center'>
-		<img src="img/loader.gif">
-	</div>
-</div>
-<div id="list-container">
-	<div id="bar-list">
+<div id="map-container">
+	<!-- <div id="header">
+		<div id='searchbox'>
+			<input id="searchbox-input" placeholder='Check a City'>
+		</div>
+		<div id='ptp-logo'>
+			<img src="img/logo.png">
+		</div>
+		
+	</di> -->
+	<div id="header">
 		<ul>
-			<li ng-repeat='bar in bars | filter:query' ng-animate='listshow'>
-				<a href="#/bars/{{bar.id}}" ng-click='printName(bar.name)'><p>{{bar.name}} </br><span>{{bar.address}}</span></p></a>
+			<li>
+				<input ng-model='query' placeholder='Search a Bar' autofocus='true'>
+			</li>
+			<li>
+				<input ng-model='price' placeholder='Price' autofocus='true'>
+			</li>
+			<li>
+				<input id="searchbox-input" placeholder='Check a City'>
+			</li>
+			<li>
+				<input id="searchbox-input" placeholder='Check a City'>
+			</li>
+		</ul>
+		<!-- <div id="input-bar">
+			<input ng-model='query' placeholder='Search a Bar' autofocus='true'>
+		</div>
+		<div id="input-price">
+			<input ng-model='price' placeholder='Price' autofocus='true'>
+		</div>
+		<div id='searchbox'>
+			<input id="searchbox-input" placeholder='Check a City'>
+		</div>
+		<div id="add-bar"></div> -->
+	</div>
+
+	<div id="map">
+		<div class='ctn-center'>
+			<img src="img/loader.gif">
+		</div>
+	</div>
+	<div id="list-container">
+		<ul>
+			<li ng-repeat='bar in bars | filter:query | filter:price' ng-animate='listshow'>
+				<a href="#/bars/{{bar.id}}" ng-click='printName(bar.name)'><p>{{bar.name}}, {{bar.price}} €</br><span>{{bar.address}}</span></p></a>
 			</li>
 		</ul>
 	</div>
