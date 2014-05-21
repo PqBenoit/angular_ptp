@@ -1,0 +1,118 @@
+html {
+  background-color: #333333;
+}
+html body {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+html body header {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+}
+html body header #searchbox {
+  margin-top: 7px;
+  margin-left: 15px;
+  float: left;
+}
+html body header #ptp-logo {
+  overflow: hidden;
+  width: 80%;
+  margin-left: 30%;
+  margin: auto;
+  float: left;
+}
+html body header #ptp-logo img {
+  width: 175px;
+  height: 24px;
+  margin-top: 7px;
+}
+html body header #input {
+  overflow: hidden;
+  height: 35px;
+  margin: 0;
+  position: fixed;
+  right: 0;
+}
+html body header #input input {
+  margin-top: 7px;
+  background: transparent;
+  border: 0;
+  width: 150px;
+  outline: none;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  color: #ffe02d;
+  opacity: 0.99;
+  font-size: 100;
+  float: left;
+}
+html body header #input ::-webkit-input-placeholder {
+  color: #888888;
+  opacity: 0.5;
+}
+html body header #input #search-icon {
+  margin-left: 20px;
+  margin-top: 4px;
+  width: 25px;
+  height: 25px;
+  overflow: hidden;
+}
+html body #map,
+html body #map-bar {
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  display: table;
+}
+html body #map .ctn-center,
+html body #map-bar .ctn-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+html body #map img,
+html body #map-bar img {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+}
+html body #list-container {
+  width: 100%;
+  height: auto;
+}
+html body #list-container #bar-list {
+  width: 350px;
+  height: 200px;
+  margin: 0 auto;
+  overflow-y: auto;
+}
+html body #list-container #bar-list ul {
+  margin-top: 0px;
+  padding-left: 0px;
+}
+html body #list-container #bar-list ul li {
+  list-style: none;
+  border-bottom: solid 1px rgba(255, 224, 45, 0.5);
+}
+html body #list-container #bar-list ul li a {
+  text-decoration: none;
+}
+html body #list-container #bar-list ul li a p {
+  padding-left: 5px;
+  font-family: 'Montserrat';
+  font-size: 22px;
+  color: #888888;
+  -webkit-transition: color 0.4s;
+  font-size: 100;
+}
+html body #list-container #bar-list ul li a p span {
+  font-size: 14px;
+}
+html body #list-container #bar-list ul li a:hover p {
+  color: #ffe02d;
+  -webkit-transition: color 0.4s;
+}
+.listshow {
+  margin-top: 500px;
+}
