@@ -1,7 +1,7 @@
 <div id="map-container">
 	<div id="responsive-header">
 		<ul>
-			<li>C</li>
+			<li ng-click='toggle = !toggle'>C</li>
 			<li>B</li>
 			<li>P</li>
 			<li>FB</li>
@@ -18,7 +18,7 @@
 				<img src='img/logo.png'>
 			</li>
 			<li id="search-bar">
-				<input ng-model='query' placeholder='Search a Bar' autofocus='true'>
+				<input ng-model='query' placeholder='Search a Bar'>
 			</li>
 		</ul>
 	</div>
@@ -27,7 +27,7 @@
 			<img src="img/loader.gif">
 		</div>
 	</div>
-	<div id='list-container'>
+	<div id='list-container' ng-show='!toggle'>
 		<ul>
 			<li ng-repeat='bar in bars | filter:query | filter:price' ng-animate='listshow'>
 				<a href="#/bars/{{bar.id}}" ng-click='printName(bar.name)'><p>{{bar.name}}, {{bar.price}}€</br><span>{{bar.address}}</span></p></a>
