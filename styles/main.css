@@ -228,11 +228,15 @@ html body #map-container #list-container ul li a p span {
   font-size: 16px;
 }
 @media (max-width: 600px) {
+  html body #map-container {
+    position: absolute;
+  }
   html body #map-container #responsive-header {
     display: block;
     width: 15%;
     height: 100%;
     background-color: #333333;
+    position: absolute;
     z-index: 100;
   }
   html body #map-container #responsive-header ul {
@@ -247,5 +251,11 @@ html body #map-container #list-container ul li a p span {
   html body #map-container #header {
     display: none;
   }
+<<<<<<< HEAD
 >>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
+=======
+  html body #map-container #map {
+    position: relative;
+  }
+>>>>>>> 15061a859ebdc148de4cdefe0c70b593ab945296
 }
