@@ -46,7 +46,11 @@
             mapTypeId: google.maps.MapTypeId.TERRAIN,
             styles: featuresOpts,
             panControl: false,
+<<<<<<< HEAD
             zoomControl: true,
+=======
+            zoomControl: false,
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
             mapTypeControl: false,
             scaleControl: false,
             streetViewControl: false,
@@ -121,7 +125,11 @@
               mapTypeId: google.maps.MapTypeId.ROAD,
               styles: featuresOpts,
               panControl: false,
+<<<<<<< HEAD
               zoomControl: true,
+=======
+              zoomControl: false,
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
               mapTypeControl: false,
               scaleControl: false,
               streetViewControl: false,

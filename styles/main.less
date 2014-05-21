@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 html {
 	background-color: #333333;
 	
@@ -67,10 +68,88 @@ html {
 						width: 25px;
 						height: 25px;
 						overflow: hidden;
+=======
+html{
+	font-family: 'Raleway';
+	body {
+		height: 100%;
+
+		#map-container {
+			width: 100%;
+			height: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin: 0 auto;
+			overflow: hidden;
+
+			#responsive-header {
+				display: none;
+			}
+
+			#header{
+				width: 100%;
+				height: 41px;
+				z-index: 100;
+				top: 0;
+				left: 0;
+				position: absolute;
+				background-color: rgba(51, 51, 51, 0.9);
+
+				ul {
+					height: 40px;
+					padding: 0;
+					margin: 0;
+					list-style-type: none;
+					text-align: center;
+
+					li {
+						display: inline;
+						margin-right: 27%;
+
+						input{
+							font-family: 'Raleway';
+							font-size: 16px;
+							width: 13%;
+							height: 20px;
+							background-color: rgba(255, 255, 255, 0.05);
+							border: none;
+							color: #ffe02d;
+							border-radius: 15px;
+							border: solid 1px rgba(255, 255, 255, 0.2);
+							padding-left: 1%;
+							margin-top: 10px;
+						}
+
+						::-webkit-input-placeholder { /* WebKit browsers */
+							color:rgba(255, 255, 255, 0.2);
+							font-family: 'Raleway';
+							padding-left: 1.5%;
+						}
+
+						input:focus{
+							outline: 0;
+						}
+					}
+
+					#ptp-logo {
+						margin-right: 0;
+						img {
+							margin-bottom: -5px;
+							width: 172px;
+							height: 23px;
+						}
+					}
+
+					#search-bar {
+						margin-left: 27%;
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
 					}
 				}
 			}
 
+<<<<<<< HEAD
 		#map, #map-bar {
 			height: 500px;
 			width: 100%;
@@ -107,10 +186,42 @@ html {
 						list-style: none;
 						border-bottom: solid 1px rgba(255, 224, 45, 0.5);
 
+=======
+			#map {
+				width: 100%;
+				height: 100%;
+				background-color: #333333;
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 10;
+				text-align: center;
+			}
+
+			#list-container {
+				height: 25%;
+				width: 100%;
+				z-index: 100;
+				bottom: 0;
+				left: 0;
+				position: absolute;
+				background-color: rgba(51, 51, 51, 0.9);
+				overflow-y: auto;
+				
+				ul {
+					margin: 0;
+					padding: 0;
+
+					li {
+						list-style: none;
+						border-bottom: solid 1px rgba(255, 255, 255, 0.3);
+						
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
 						a {
 							text-decoration: none;
 
 							p {
+<<<<<<< HEAD
 								padding-left: 5px;
 								font-family: 'Montserrat';
 								font-size: 22px;
@@ -132,12 +243,56 @@ html {
 						}
 					}
 					
+=======
+								margin: 0;
+								font-size: 24px;
+								color: rgb(255, 224, 45);
+
+								span {
+									font-size: 16px;
+								}
+							}
+						}
+					}
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
 				}
 			}
 		}
 	}
 }
 
+<<<<<<< HEAD
 .listshow {
 	margin-top: 500px;
+=======
+@media (max-width: 600px) {
+	html {
+		body {
+			#map-container {
+				#responsive-header {
+					display: block;
+					width: 15%;
+					height: 100%;
+					background-color: #333333;
+					z-index: 100;
+
+					ul {
+						height: 100%;
+						margin: 0;
+						padding: 0;
+
+						li {
+							height: 16.67%;
+							border-bottom: solid 1px white;
+						}
+					}
+				}
+
+				#header{
+					display: none;
+				}
+			}
+		}
+	}
+>>>>>>> a4396e7bd0170ea7bbab5e0dc66c8fcb6762cd43
 }
