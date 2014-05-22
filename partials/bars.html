@@ -1,22 +1,24 @@
 <div id="map-container">
 	<div id="header">
-		    <div id="menu_left" >
+        <div id="m_left" ng-click="showMenu = ! showMenu">
+            <img src="img/m_left.png" />
+        </div>
+        <!-- Block menu left non visible -->
+        <div id="content_left" ng-show="showMenu">
                 <div id="bg_menu" >
                     <img src='img/logo.png'>
-                    <input id="searchbox-input" placeholder='Check a City'>
-                    <input id="searchbox-input" placeholder='Check a City'>
-                    <input id="searchbox-input" placeholder='Check a City'>
-                    <input id="searchbox-input" placeholder='Check a City'>
-                    <input id="searchbox-input" placeholder='Check a City'>
+                    <div id="city_search"><input id="searchbox-input" placeholder='Check a City'></div>
+                    <div id="city_bars"><input ng-model='query' placeholder='Search a Bar'></div>
+
                     <input id="searchbox-input" placeholder='Check a City'>
                     <input id="searchbox-input" placeholder='Check a City'>
                 </div>
-			</div>
+        </div>
 			<div id='ptp-logo' >
 				<img src='img/logo.png'>
 			</div>
 			<div id="menu_right" style="display: none">
-				<input ng-model='query' placeholder='Search a Bar'>
+
 			</div>
 	</div>
 	<div id="map">
