@@ -44,8 +44,9 @@
 				<input ng-model='query' placeholder='Trouve un bar'>
 				<div class="list">
 					<ul>
-						<li ng-repeat='bar in bars | filter:query'>
-							{{bar.name}}
+						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
+							<h2>{{bar.name}}</h2>
+							<p>{{bar.price}} €</p>
 						</li>
 					</ul>
 				</div>
