@@ -1,4 +1,5 @@
 html{
+
 	body{
 		height: 100%;
 		width: 300%;
@@ -11,23 +12,6 @@ html{
 					color: #ffe02d;
 				}
 			}
-
-		// #map-container {
-		// 	width: 40%;
-		// 	height: 100%;
-		// 	display: block;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	margin: 0 auto;
-		// 	overflow: hidden;
-		// 	float: left;
-
-		// 	#map {
-		// 		height: 100%;
-		// 		z-index: 100;
-		// 	}
-		// }
 
 		#main-container{
 			position: absolute;
@@ -45,7 +29,7 @@ html{
 			}
 
 			#map-container {
-				width: 33.33%;
+				// width: 33.31%;
 				height: 100%;
 				display: block;
 				position: absolute;
@@ -55,26 +39,64 @@ html{
 				#map {
 					height: 100%;
 					z-index: 100;
+				}
+			}
+			
+			#list-container {
+				
+				input {
+					width: 100%;
+					background-color: #333333;
+					border: none;
+					color: #ffe02d;
+					border-bottom: solid 1px #ffe02d;
+					font-size: 20px;
+					font-family: 'Raleway';
+					padding: 10px;
+					padding-bottom: 5px;
+				}
 
-					input {
-						z-index: 200;
-						margin-bottom: 100px;
+				input:focus{
+					outline: 0;
+				}
+
+				::-webkit-input-placeholder { /* WebKit browsers */
+					color: #888888;
+					opacity: 0.4;
+				}
+				:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+					color: #888888;
+					opacity: 0.4;
+				}
+				::-moz-placeholder { /* Mozilla Firefox 19+ */
+					color: #888888;
+					opacity: 0.4;
+				}
+				:-ms-input-placeholder { /* Internet Explorer 10+ */
+					color: #888888;
+					opacity: 0.4;
+				}
+
+				.list {
+					left:0;
+					right:0;
+					height:90%;
+					position:absolute;
+					overflow-y: auto;
+
+					ul {
+						margin: 0;
+						padding: 0;
+						list-style: none;
+						font-family: 'Raleway';
+
+						li {
+							padding: 5px;
+							border-bottom: solid 1px rgba(136,136,136,0.4);
+						}
 					}
 				}
 			}
-
-			.list {
-				top: 0;
-				left:0;
-				right:0;
-				height:100%;
-				overflow-y: auto;
-				position:absolute;
-			}
 		}
 	}
-}
-
-.icon-map:active {
-// background-color: yellow;
 }

@@ -10,7 +10,9 @@
 		<script type="text/javascript" src="scripts/angular/angular-route.js"></script>
 		<script type="text/javascript" src="scripts/angular/angular-animate.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+		<script src="scripts/tweenmax.min.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="styles/animate.css">
 		<link rel="stylesheet" type="text/css"href="styles/ratchet/ratchet.css">
 		<link rel="stylesheet" type="text/css" href="styles/index.css" />
@@ -39,8 +41,8 @@
 				</div>
 			</div>
 			<div class="mobile-panel slide" id="list-container">
+				<input ng-model='query' placeholder='Trouve un bar'>
 				<div class="list">
-					<input ng-model='query' placeholder='Trouve un bar'>
 					<ul>
 						<li ng-repeat='bar in bars | filter:query'>
 							{{bar.name}}
