@@ -1,3 +1,5 @@
+@yellow : #ffe02d;
+
 html{
 
 	body{
@@ -9,7 +11,7 @@ html{
 				background-color: #333333;
 
 				.tab-item.active, .tab-item:active {
-					color: #ffe02d;
+					color: @yellow;
 				}
 			}
 
@@ -48,10 +50,10 @@ html{
 					width: 100%;
 					background-color: #333333;
 					border: none;
-					color: #ffe02d;
+					color: @yellow;
 					border-bottom: solid 1px #888888;
 					font-size: 20px;
-					font-family: 'Raleway';
+					font-family: 'Montserrat';
 					padding: 10px;
 					padding-bottom: 5px;
 				}
@@ -85,11 +87,30 @@ html{
 						margin: 0;
 						padding: 0;
 						list-style: none;
-						font-family: 'Raleway';
+						font-family: 'Montserrat';
 
 						.bar-item {
-							padding: 5px;
 							border-bottom: solid 1px rgba(136,136,136,0.4);
+							
+							a{
+								display:table;
+								width:100%;
+								padding: 10px;
+								color:#fff;
+								font-size:14px;
+								
+								.price,.name {
+									display:table-cell;
+								}
+
+								.name {
+									color: @yellow;
+								}
+
+								.price{
+									text-align: right;
+								}
+							}
 						}
 					}
 				}
