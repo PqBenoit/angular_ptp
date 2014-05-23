@@ -70,6 +70,10 @@ html body #main-container #map-container #map {
   height: 100%;
   z-index: 100;
 }
+html body #main-container #map-container #map input {
+  z-index: 200;
+  margin-bottom: 100px;
+}
 html body #main-container .list {
   top: 0;
   left: 0;
