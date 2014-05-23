@@ -1,23 +1,12 @@
 (function() {
   var payetapinteApp;
 
-  payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'geolocation']);
-
-  payetapinteApp.config([
-    '$routeProvider', function($routeProvider) {
-      return $routeProvider.when('/', {
-        templateUrl: 'partials/home.html',
-        controller: 'MainCtrl'
-      }).when('/bars', {
-        templateUrl: 'partials/bars.html',
-        controller: 'MainCtrl'
-      });
-    }
-  ]);
+  payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'ngAnimate', 'geolocation']);
 
   payetapinteApp.controller('MainCtrl', [
     '$scope', '$http', 'geolocation', function($scope, $http, geolocation) {
       var i, latTab, lngTab;
+      $scope.pageClass = "page-map";
       latTab = [];
       lngTab = [];
       i = 0;

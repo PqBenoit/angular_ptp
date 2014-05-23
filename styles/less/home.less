@@ -1,7 +1,7 @@
 html{
 	body{
 		height: 100%;
-		background-color: #333333;
+		width: 300%;
 
 		.bar-tab {
 				z-index: 200;
@@ -12,19 +12,59 @@ html{
 				}
 			}
 
-		#map-container {
+		// #map-container {
+		// 	width: 40%;
+		// 	height: 100%;
+		// 	display: block;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	margin: 0 auto;
+		// 	overflow: hidden;
+		// 	float: left;
+
+		// 	#map {
+		// 		height: 100%;
+		// 		z-index: 100;
+		// 	}
+		// }
+
+		#main-container{
+			position: absolute;
 			width: 100%;
 			height: 100%;
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			margin: 0 auto;
-			overflow: hidden;
+			display: table;
+			left: -33.33%;
 
-			#map {
+			.mobile-panel {
+				position: relative;
+				display: table-cell;
+				width: 33.33%;
 				height: 100%;
-				z-index: 100;
+				background-color: #333333;
+			}
+
+			#map-container {
+				width: 33.33%;
+				height: 100%;
+				display: block;
+				position: absolute;
+				top: 0;
+				margin: 0 auto;
+
+				#map {
+					height: 100%;
+					z-index: 100;
+				}
+			}
+
+			.list {
+				top: 0;
+				left:0;
+				right:0;
+				height:100%;
+				overflow-y: auto;
+				position:absolute;
 			}
 		}
 	}

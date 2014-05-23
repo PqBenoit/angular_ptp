@@ -8,17 +8,19 @@
 		<script type="text/javascript" src="scripts/angular/angular.js"></script>
 		<script type="text/javascript" src="scripts/angular/angularjs-geolocation.min.js"></script>
 		<script type="text/javascript" src="scripts/angular/angular-route.js"></script>
+		<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
+		<link rel="stylesheet" type="text/css" href="styles/animate.css">
 		<link rel="stylesheet" type="text/css"href="styles/ratchet/ratchet.css">
 		<link rel="stylesheet" type="text/css" href="styles/index.css" />
 		<link rel="stylesheet" type="text/css" href="styles/main.css" />
 		<title>Paye ta Pinte</title>
 	</head>
-	<body>
-		<div ng-view></div>
+	<body ng-controller='MainCtrl'>
+
 		<nav class="bar bar-tab">
-			<a class="tab-item" href="#/">
+			<a class="tab-item" href="#" ng-click="style={left: '0', transition: '0.5s'}">
 				<span class="icon icon-person"></span>
 				<span class="tab-label">Profile</span>
 			</a>
@@ -26,7 +28,7 @@
 				<span class="icon icon-star-filled"></span>
 				<span class="tab-label">Favorites</span>
 			</a>
-			<a class="tab-item" href="#">
+			<a class="tab-item" href="#" ng-click="style={left: '-33.345%', transition: '0.5s'}">
 				<span class="icon icon-home"></span>
 				<span class="tab-label">Home</span>
 			</a>
@@ -34,11 +36,41 @@
 				<span class="icon icon-search"></span>
 				<span class="tab-label">Search</span>
 			</a>
-			<a class="tab-item" href="#/bars">
+			<a class="tab-item" href="#" ng-click="style={left: '-66.67%', transition: '0.5s'}">
 				<span class="icon icon-bars"></span>
 				<span class="tab-label">List</span>
 			</a>
 		</nav>
+		<div id='main-container' ng-style="style">
+			<div class="mobile-panel" id="left">
+				<a href="#middle">middle</a>
+			</div>
+			<div class="mobile-panel" id="map-container">
+				<div id="map">MAP</div>
+			</div>
+			<div class="mobile-panel" id="list-container">
+				<div class="list">
+					<input ng-model='query' placeholder='Trouve un bar'>
+					<ul>
+						<li ng-repeat='bar in bars | filter:query'>
+							{{bar.name}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- <div id='map-container' ng-controller='MapCtrl'>
+			<div id='map'></div>
+		</div>
+		<div id="list-container" ng-controller='BarListCtrl'>
+			<input ng-model='query' placeholder='Search bar' autofocus='true'>
+			<ul>
+				<li ng-repeat="bar in bars | filter:query" >
+					{{bar.name}}
+				</li>
+			</ul>
+		</div> -->
+
 		<script type="text/javascript" src="scripts/ratchet.js"></script>
 		<script type="text/javascript" src="scripts/index.js"></script>
 		<script type="text/javascript">

@@ -1,17 +1,20 @@
-payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'geolocation'])
+payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'ngAnimate', 'geolocation'])
 
-payetapinteApp.config ['$routeProvider',
-	($routeProvider) ->
-		$routeProvider.when('/',
-			templateUrl: 'partials/home.html'
-			controller: 'MainCtrl'
-			).when('/bars',
-			templateUrl: 'partials/bars.html'
-			controller: 'MainCtrl'
-			)
-]
+# payetapinteApp.config ['$routeProvider',
+# 	($routeProvider) ->
+# 		$routeProvider.when('/',
+# 			templateUrl: 'partials/home.html'
+# 			controller: 'MapCtrl'
+# 			).when('/bars',
+# 			templateUrl: 'partials/bars.html'
+# 			controller: 'BarListCtrl'
+# 			)
+# ]
 
 payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http, geolocation) ->
+
+	$scope.pageClass = "page-map"
+
 	latTab = []
 	lngTab = []
 	i = 0
@@ -92,6 +95,14 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope
 				$scope.map.setZomm(15)
 	)
 ]
+
+# payetapinteApp.controller 'BarListCtrl', ['$scope', '$http', ($scope, $http) ->
+
+# 	$scope.pageClass = 'page-barlist'
+# 	$http.get('bars.json').success((data) ->
+# 		$scope.bars = data
+# 	)
+# ]
 # ptpApp = angular.module('ptpApp', ['ngRoute', 'geolocation'])
 
 # ptpApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http, geolocation) ->
