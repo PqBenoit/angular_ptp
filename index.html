@@ -18,9 +18,9 @@
 		<title>Paye ta Pinte</title>
 	</head>
 	<body ng-controller='MainCtrl'>
-
+	
 		<nav class="bar bar-tab">
-			<a class="tab-item" href="#" ng-click="style={left: '0', transition: '0.5s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(33.33%,0,0)', transform: 'translate3d(33.33%,0,0)' , transition: '0.3s'}">
 				<span class="icon icon-person"></span>
 				<span class="tab-label">Profile</span>
 			</a>
@@ -28,7 +28,7 @@
 				<span class="icon icon-star-filled"></span>
 				<span class="tab-label">Favorites</span>
 			</a>
-			<a class="tab-item" href="#" ng-click="style={left: '-33.345%', transition: '0.5s'}">
+			<a class="tab-item" href="#" ng-click="style={left: '-33.345%', transition: '0.3s'}">
 				<span class="icon icon-home"></span>
 				<span class="tab-label">Home</span>
 			</a>
@@ -36,7 +36,7 @@
 				<span class="icon icon-search"></span>
 				<span class="tab-label">Search</span>
 			</a>
-			<a class="tab-item" href="#" ng-click="style={left: '-66.67%', transition: '0.5s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-animation': 'slideInRight 1s', transition: '0.3s'}">
 				<span class="icon icon-bars"></span>
 				<span class="tab-label">List</span>
 			</a>
@@ -46,7 +46,8 @@
 				<a href="#middle">middle</a>
 			</div>
 			<div class="mobile-panel" id="map-container">
-				<div id="map">MAP</div>
+				<div id="map">
+				</div>
 			</div>
 			<div class="mobile-panel" id="list-container">
 				<div class="list">
