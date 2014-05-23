@@ -21,24 +21,13 @@
 	
 		<nav class="bar bar-tab">
 			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(33.33%,0,0)', transform: 'translate3d(33.33%,0,0)' , transition: '0.3s'}">
-				<span class="icon icon-person"></span>
-				<span class="tab-label">Profile</span>
+				<span class="icon icon-more"></span>
 			</a>
-			<a class="tab-item" href="#">
-				<span class="icon icon-star-filled"></span>
-				<span class="tab-label">Favorites</span>
+			<a class='tab-item' href="#" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}">
+				<span class='icon icon-map'><img src="img/map-nav.png"></span>
 			</a>
-			<a class="tab-item" href="#" ng-click="style={left: '-33.345%', transition: '0.3s'}">
-				<span class="icon icon-home"></span>
-				<span class="tab-label">Home</span>
-			</a>
-			<a class="tab-item" href="#">
-				<span class="icon icon-search"></span>
-				<span class="tab-label">Search</span>
-			</a>
-			<a class="tab-item" href="#" ng-click="style={'-webkit-animation': 'slideInRight 1s', transition: '0.3s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-33.33%,0,0)', transform: 'translate3d(-33.33%,0,0)' , transition: '0.3s'}">
 				<span class="icon icon-bars"></span>
-				<span class="tab-label">List</span>
 			</a>
 		</nav>
 		<div id='main-container' ng-style="style">
@@ -49,7 +38,7 @@
 				<div id="map">
 				</div>
 			</div>
-			<div class="mobile-panel" id="list-container">
+			<div class="mobile-panel slide" id="list-container">
 				<div class="list">
 					<input ng-model='query' placeholder='Trouve un bar'>
 					<ul>
