@@ -25,6 +25,24 @@ html body #main-container .mobile-panel {
   height: 100%;
   background-color: #333333;
 }
+html body #main-container #more {
+  text-align: center;
+}
+html body #main-container #more #add-bar,
+html body #main-container #more #fb-connect {
+  width: 80%;
+  height: 10%;
+  margin-top: 50%;
+  margin: auto;
+}
+html body #main-container #more #add-bar {
+  background-color: #888888;
+  color: #333333;
+}
+html body #main-container #more #fb-connect {
+  background-color: #3b5998;
+  color: #888888;
+}
 html body #main-container #map-container {
   height: 100%;
   display: block;
