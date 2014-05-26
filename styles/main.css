@@ -57,21 +57,22 @@ html body #main-container #map-container #map {
 html body #main-container #map-container .list-up {
   background-color: rgba(51, 51, 51, 0.6);
   position: absolute;
-  height: 35%;
+  height: 45%;
   width: 100%;
   z-index: 150;
   bottom: 0px;
 }
 html body #main-container #map-container .list-up #toggle {
-  position: absolute;
+  padding-bottom: 20px;
+  position: fixed;
   width: 100%;
   height: 20px;
-  bottom: 100%;
+  z-index: 400;
   background-color: #333333;
   transition: 0.2s;
+  text-align: center;
 }
 html body #main-container #map-container .list-up ul {
-  margin: 0;
   padding: 0;
   list-style: none;
   font-family: 'Montserrat';
@@ -111,6 +112,7 @@ html body #main-container #map-container .list-down #toggle {
   bottom: 50px;
   background-color: #333333;
   transition: 0.2s;
+  text-align: center;
 }
 html body #main-container #map-container .list-down ul {
   display: none;
