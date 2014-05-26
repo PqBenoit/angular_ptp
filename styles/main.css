@@ -61,6 +61,7 @@ html body #main-container #map-container .list-up {
   width: 100%;
   z-index: 150;
   bottom: 0px;
+  overflow-y: auto;
 }
 html body #main-container #map-container .list-up #toggle {
   padding-bottom: 20px;
