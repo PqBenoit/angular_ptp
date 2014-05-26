@@ -105,12 +105,15 @@ html body #main-container #map-container .list-up ul li a .price {
 html body #main-container #map-container .list-down {
   position: absolute;
   z-index: 150;
-  bottom: 0px;
+  bottom: -15%;
   width: 100%;
-  height: 12.3%;
+  height: 27.5%;
   overflow-y: auto;
   background-color: rgba(51, 51, 51, 0.5);
   transition: 0.2s;
+}
+html body #main-container #map-container .list-down ul {
+  height: 0%;
 }
 html body #main-container #map-container .list-down p {
   text-align: center;
@@ -122,33 +125,6 @@ html body #main-container #map-container .list-down #toggle {
   z-index: 400;
   border-bottom: solid 1px #888888;
   position: fixed;
-}
-html body #main-container #map-container .list-down ul {
-  margin: 0;
-  padding: 0;
-  padding-top: 20px;
-  list-style: none;
-  font-family: 'Montserrat';
-}
-html body #main-container #map-container .list-down ul li {
-  border-bottom: solid 1px rgba(136, 136, 136, 0.6);
-}
-html body #main-container #map-container .list-down ul li a {
-  display: table;
-  width: 100%;
-  padding: 10px;
-  color: #fff;
-  font-size: 14px;
-}
-html body #main-container #map-container .list-down ul li a .price,
-html body #main-container #map-container .list-down ul li a .name {
-  display: table-cell;
-}
-html body #main-container #map-container .list-down ul li a .name {
-  color: #ffe02d;
-}
-html body #main-container #map-container .list-down ul li a .price {
-  text-align: right;
 }
 html body #main-container #list-container input {
   width: 100%;

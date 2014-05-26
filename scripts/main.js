@@ -79,7 +79,6 @@
           });
         });
       }, $scope["class"] = 'list-up', $scope.changeListClass = function() {
-        console.log('hello');
         if ($scope["class"] === 'list-up') {
           return $scope["class"] = 'list-down';
         } else {
