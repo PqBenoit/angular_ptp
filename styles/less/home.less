@@ -80,6 +80,7 @@ html{
 					bottom: 0px;
 					overflow-y: auto;
 					transition: 0.2s;
+					-webkit-transform: translate3d(0,0,0);
 
 					#toggle {
 						padding-bottom: 20px;
@@ -87,6 +88,11 @@ html{
 						width: 100%;
 						height: 20px;
 						z-index: 400;
+						// -webkit-transform:translateZ(400);
+						// -moz-transform:translateZ(400);
+						// -o-transform:translateZ(400);
+						// transform:translateZ(400);
+						-webkit-transform: translate3d(0,0,0);
 						background-color: #333333;
 						text-align: center;
 						border-bottom: solid 1px rgba(136,136,136,1);
@@ -132,13 +138,19 @@ html{
 					z-index: 150;
 					bottom: 0px;
 					transition: 0.2s;
+					-webkit-transform: translate3d(0,0,0);
 
 					#toggle {
-						position: absolute;
+						position: fixed;
+						-webkit-transform: translate3d(0,0,0);
 						width: 100%;
 						height: 20px;
 						bottom: 50px;
 						z-index: 400;
+						// -webkit-transform:translateZ(400);
+						// -moz-transform:translateZ(400);
+						// -o-transform:translateZ(400);
+						// transform:translateZ(400);
 						background-color: #333333;
 						text-align: center;
 					}

@@ -70,6 +70,7 @@ html body #main-container #map-container .list-up {
   bottom: 0px;
   overflow-y: auto;
   transition: 0.2s;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 html body #main-container #map-container .list-up #toggle {
   padding-bottom: 20px;
@@ -77,6 +78,7 @@ html body #main-container #map-container .list-up #toggle {
   width: 100%;
   height: 20px;
   z-index: 400;
+  -webkit-transform: translate3d(0, 0, 0);
   background-color: #333333;
   text-align: center;
   border-bottom: solid 1px #888888;
@@ -114,9 +116,11 @@ html body #main-container #map-container .list-down {
   z-index: 150;
   bottom: 0px;
   transition: 0.2s;
+  -webkit-transform: translate3d(0, 0, 0);
 }
 html body #main-container #map-container .list-down #toggle {
-  position: absolute;
+  position: fixed;
+  -webkit-transform: translate3d(0, 0, 0);
   width: 100%;
   height: 20px;
   bottom: 50px;
