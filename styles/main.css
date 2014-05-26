@@ -1,7 +1,7 @@
 
 html body {
   height: 100%;
-  width: 300%;
+  width: 400%;
 }
 html body .bar-tab {
   z-index: 200;
@@ -16,12 +16,12 @@ html body #main-container {
   width: 100%;
   height: 100%;
   display: table;
-  left: -33.33%;
+  left: -50%;
 }
 html body #main-container .mobile-panel {
   position: relative;
   display: table-cell;
-  width: 33.33%;
+  width: 25.0%;
   height: 100%;
   background-color: #333333;
 }

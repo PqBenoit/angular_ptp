@@ -1,19 +1,6 @@
 payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'ngAnimate', 'geolocation'])
 
-# payetapinteApp.config ['$routeProvider',
-# 	($routeProvider) ->
-# 		$routeProvider.when('/',
-# 			templateUrl: 'partials/home.html'
-# 			controller: 'MapCtrl'
-# 			).when('/bars',
-# 			templateUrl: 'partials/bars.html'
-# 			controller: 'BarListCtrl'
-# 			)
-# ]
-
-payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope, $http, geolocation) ->
-
-	$scope.pageClass = "page-map"
+payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope',($scope, $http, geolocation, $routeParams, $rootScope) ->
 
 	latTab = []
 	lngTab = []
@@ -93,6 +80,12 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope
 
 				$scope.map.fitBounds(bounds)
 				$scope.map.setZomm(15)
+
+		# for bar in data
+		# 	if parseInt(bar.id) == parseInt($routeParams.barId)
+		# 		$scope.bar = bar
+
+		# console.log bar
 	)
 ]
 
@@ -195,55 +188,66 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', ($scope
 # ]
 
 
-# ptpApp.controller 'BarDetailCtrl', ['$scope', '$routeParams', '$rootScope', '$http', ($scope, $routeParams, $rootScope, $http) ->
+# payetapinteApp.controller 'BarDetailCtrl', ['$scope', '$routeParams', '$rootScope', '$http', ($scope, $routeParams, $rootScope, $http) ->
 # 	$http.get('bars.json').success((data) ->
 
-# 		iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png'
+# 		# iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png'
 
-# 		markerIcon =
-# 			new google.maps.MarkerImage(
-# 				iconUrl, null, null, null, new google.maps.Size(34, 44)
-# 			)
+# 		# markerIcon =
+# 		# 	new google.maps.MarkerImage(
+# 		# 		iconUrl, null, null, null, new google.maps.Size(34, 44)
+# 		# 	)
 
-# 		for bar in data
-# 			if parseInt(bar.id) == parseInt($routeParams.barId)
-# 				$scope.bar = bar 
-# 				currentLoc = new google.maps.LatLng(bar.latitude, bar.longitude)
+		# for bar in data
+		# 	if parseInt(bar.id) == parseInt($routeParams.barId)
+		# 		$scope.bar = bar 
+# 				# currentLoc = new google.maps.LatLng(bar.latitude, bar.longitude)
 
-# 				featuresOpts = [
-# 					{
-# 						featureType: "water"
-# 						stylers: [color: "#8bc6fd"]
-# 					}
-# 					{
-# 						featureType: "landscape"
-# 						stylers: [
-# 							color: "#ffffff"
-# 						]
-# 					}
-# 				]
+# 				# featuresOpts = [
+# 				# 	{
+# 				# 		featureType: "water"
+# 				# 		stylers: [color: "#8bc6fd"]
+# 				# 	}
+# 				# 	{
+# 				# 		featureType: "landscape"
+# 				# 		stylers: [
+# 				# 			color: "#ffffff"
+# 				# 		]
+# 				# 	}
+# 				# ]
 
-# 				mapOptions =
-# 					zoom: 15
-# 					center: currentLoc
-# 					mapTypeId: google.maps.MapTypeId.ROAD
-# 					styles: featuresOpts
-# 					panControl: false
-# 					zoomControl: false
-# 					mapTypeControl: false
-# 					scaleControl: false
-# 					streetViewControl: false
-# 					overviewMapControl: false
+# 				# mapOptions =
+# 				# 	zoom: 15
+# 				# 	center: currentLoc
+# 				# 	mapTypeId: google.maps.MapTypeId.ROAD
+# 				# 	styles: featuresOpts
+# 				# 	panControl: false
+# 				# 	zoomControl: false
+# 				# 	mapTypeControl: false
+# 				# 	scaleControl: false
+# 				# 	streetViewControl: false
+# 				# 	overviewMapControl: false
 
-# 				$scope.map = new google.maps.Map(document.getElementById('map-bar'), mapOptions)
+# 				# $scope.map = new google.maps.Map(document.getElementById('map-bar'), mapOptions)
 
-# 				marker = 
-# 					new google.maps.Marker(
-# 						position: currentLoc
-# 						icon: markerIcon
-# 						map: $scope.map
-# 					)
+# 				# marker = 
+# 				# 	new google.maps.Marker(
+# 				# 		position: currentLoc
+# 				# 		icon: markerIcon
+# 				# 		map: $scope.map
+# 				# 	)
 # 	)
+# ]
+
+# payetapinteApp.config ['$routeProvider',
+# 	($routeProvider) ->
+# 		$routeProvider.when('/',
+# 			templateUrl: 'partials/home.html'
+# 			controller: 'MainCtrl'
+# 			).when('/:barId',
+# 				templateUrl: 'partials/bars.html'
+# 				controller: 'BarDetailCtrl'
+# 			)
 # ]
 
 # ptpApp.config ['$routeProvider',

@@ -22,17 +22,19 @@
 	<body ng-controller='MainCtrl'>
 	
 		<nav class="bar bar-tab">
-			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(33.33%,0,0)', transform: 'translate3d(33.33%,0,0)' , transition: '0.3s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}">
 				<span class="icon icon-more"></span>
 			</a>
 			<a class='tab-item' href="#" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}">
 				<span class='icon icon-map'><img src="img/map-nav.png"></span>
 			</a>
-			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-33.33%,0,0)', transform: 'translate3d(-33.33%,0,0)' , transition: '0.3s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-25%,0,0)', transform: 'translate3d(-25%,0,0)' , transition: '0.3s'}">
 				<span class="icon icon-bars"></span>
 			</a>
 		</nav>
 		<div id='main-container' ng-style="style">
+			<div class="mobile-panel" id="bar-detail">
+			</div>
 			<div class="mobile-panel" id="more">
 				<p id="add-bar">Ajoute un bar</p>
 				<p id="fb-connect">Facebook</p>
@@ -66,6 +68,9 @@
 				</li>
 			</ul>
 		</div> -->
+		<div class="mobile-container" id="bar-details">
+			
+		</div>
 
 		<script type="text/javascript" src="scripts/ratchet.js"></script>
 		<script type="text/javascript" src="scripts/index.js"></script>

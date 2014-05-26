@@ -4,9 +4,8 @@
   payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'ngAnimate', 'geolocation']);
 
   payetapinteApp.controller('MainCtrl', [
-    '$scope', '$http', 'geolocation', function($scope, $http, geolocation) {
+    '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
       var i, latTab, lngTab;
-      $scope.pageClass = "page-map";
       latTab = [];
       lngTab = [];
       i = 0;
