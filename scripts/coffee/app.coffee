@@ -86,6 +86,15 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 		# 		$scope.bar = bar
 
 		# console.log bar
+
+	$scope.class = 'list-up'
+
+	$scope.changeListClass = ->
+		console.log 'hello'
+		if $scope.class == 'list-up'
+			$scope.class = 'list-down'
+		else
+			$scope.class = 'list-up'
 	)
 ]
 

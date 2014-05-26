@@ -10,7 +10,7 @@
 		<script type="text/javascript" src="scripts/angular/angular-route.js"></script>
 		<script type="text/javascript" src="scripts/angular/angular-animate.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
-		<script src="scripts/tweenmax.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="scripts/main.js"></script>
 		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="styles/animate.css">
@@ -42,9 +42,22 @@
 			<div class="mobile-panel" id="map-container">
 				<div id="map">
 				</div>
+				<div class='{{class}}'>
+					<div id="toggle" ng-click='changeListClass()'>
+						<p>-</p>
+					</div>
+					<ul>
+						<li ng-repeat='bar in bars'>
+							<a href="#">
+								<span class="name">{{bar.name}}</span>
+								<span class="price">{{bar.price}} €</span>
+							</a>
+						</li>
+					</ul>
+				</div>
 			</div>
-			<div class="mobile-panel slide" id="list-container">
-				<input ng-model='query' placeholder='Trouve un bar'>
+			<div class="mobile-panel slide" id="list-container" >
+				<input ng-model='query' placeholder='Trouve un bar' ng-style='styyles'>
 				<div class="list">
 					<ul>
 						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
