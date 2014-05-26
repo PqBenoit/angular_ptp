@@ -54,6 +54,69 @@ html body #main-container #map-container #map {
   height: 100%;
   z-index: 100;
 }
+html body #main-container #map-container #map .wrapper {
+  text-align: center;
+  width: 100%;
+  height: 30%;
+}
+html body #main-container #map-container #map .wrapper .row {
+  width: 100%;
+  height: 100%;
+}
+html body #main-container #map-container #map .wrapper .row .span .location_indicator {
+  margin-top: 75%;
+  position: relative;
+}
+html body #main-container #map-container #map .wrapper .row .span .location_indicator:before,
+html body #main-container #map-container #map .wrapper .row .span .location_indicator:after {
+  position: absolute;
+  content: '';
+}
+html body #main-container #map-container #map .wrapper .row .span .location_indicator:before {
+  width: 20px;
+  height: 20px;
+  left: 47.5%;
+  border-radius: 100% 100% 100% 0;
+  box-shadow: 0px 0px 0px 2px #ffffff;
+  -webkit-animation: mapping 1s linear infinite;
+  -moz-animation: mapping 1s linear infinite;
+  animation: mapping 1s linear infinite;
+  -webkit-transform: rotate(-46deg);
+  -moz-transform: rotate(-46deg);
+  transform: rotate(-46deg);
+}
+html body #main-container #map-container #map .wrapper .row .span .location_indicator:after {
+  text-align: center;
+  width: 30px;
+  height: 10px;
+  border-radius: 100%;
+  left: 46%;
+  background-color: rgba(255, 255, 255, 0.5);
+  top: 24px;
+  z-index: 0;
+}
+@-webkit-keyframes mapping {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -5px;
+  }
+  100% {
+    top: 0;
+  }
+}
+@-moz-keyframes mapping {
+  0% {
+    top: 0;
+  }
+  50% {
+    top: -5px;
+  }
+  100% {
+    top: 0;
+  }
+}
 html body #main-container #map-container input {
   position: absolute;
   width: 100%;
