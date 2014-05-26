@@ -78,7 +78,7 @@
             return $scope.map.setZomm(15);
           });
         });
-      }, $scope["class"] = 'list-up', $scope.changeListClass = function() {
+      }, $scope["class"] = 'list-down', $scope.changeListClass = function() {
         if ($scope["class"] === 'list-up') {
           return $scope["class"] = 'list-down';
         } else {
