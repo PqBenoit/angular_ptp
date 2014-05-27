@@ -5,7 +5,7 @@
 
   payetapinteApp.controller('MainCtrl', [
     '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
-      var i, latTab, lngTab, markers;
+      var deg2rad, getDistanceFromLatLonInKm, i, latTab, lngTab, markers;
       latTab = [];
       lngTab = [];
       markers = [];
@@ -62,6 +62,7 @@
               icon: markerIcon,
               map: $scope.map
             });
+            console.log(getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]), $scope.bars[i]);
             i++;
           }
           i = 0;
@@ -101,6 +102,17 @@
         } else {
           return $scope["class"] = 'list-up';
         }
+      }, getDistanceFromLatLonInKm = function(lat1, lon1, lat2, lon2) {
+        var R, a, c, d, dLat, dLon;
+        R = 6371;
+        dLat = deg2rad(lat2 - lat1);
+        dLon = deg2rad(lon2 - lon1);
+        a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        d = R * c * 1000;
+        return parseInt(d);
+      }, deg2rad = function(deg) {
+        return deg * (Math.PI / 180);
       });
     }
   ]);
