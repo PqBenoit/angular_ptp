@@ -63,6 +63,12 @@
             });
             i++;
           }
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
+            icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png',
+            animation: google.maps.Animation.DROP,
+            map: $scope.map
+          });
           input = document.getElementById('searchbox-input');
           searchBox = new google.maps.places.SearchBox(input);
           return google.maps.event.addListener(searchBox, "places_changed", function() {

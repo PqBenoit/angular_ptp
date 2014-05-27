@@ -61,8 +61,17 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 						position: new google.maps.LatLng(latTab[i], lngTab[i])
 						icon: markerIcon
 						map: $scope.map
-				)
+					)
 				i++
+
+			marker =
+				new google.maps.Marker(
+					position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
+					icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png'
+					animation: google.maps.Animation.DROP
+					map: $scope.map
+				)
+
 
 			input = document.getElementById('searchbox-input')
 
@@ -80,12 +89,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 				$scope.map.fitBounds(bounds)
 				$scope.map.setZomm(15)
-
-		# for bar in data
-		# 	if parseInt(bar.id) == parseInt($routeParams.barId)
-		# 		$scope.bar = bar
-
-		# console.log bar
 
 	$scope.class = 'list-down'
 
