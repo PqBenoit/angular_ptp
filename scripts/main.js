@@ -5,9 +5,10 @@
 
   payetapinteApp.controller('MainCtrl', [
     '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
-      var i, latTab, lngTab;
+      var i, latTab, lngTab, markers;
       latTab = [];
       lngTab = [];
+      markers = [];
       i = 0;
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
@@ -18,7 +19,7 @@
         }
         i = 0;
         return geolocation.getLocation().then(function(data) {
-          var featuresOpts, iconUrl, input, mapOptions, marker, markerIcon, searchBox;
+          var featuresOpts, iconUrl, input, mapOptions, marker, markerIcon, searchBox, userMarker;
           $scope.coords = {
             lat: data.coords.latitude,
             lng: data.coords.longitude
@@ -56,18 +57,29 @@
           iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png';
           markerIcon = new google.maps.MarkerImage(iconUrl, null, null, null, new google.maps.Size(34, 44));
           while (i < $scope.bars.length) {
-            marker = new google.maps.Marker({
+            markers[i] = new google.maps.Marker({
               position: new google.maps.LatLng(latTab[i], lngTab[i]),
               icon: markerIcon,
               map: $scope.map
             });
             i++;
           }
-          marker = new google.maps.Marker({
+          i = 0;
+          while (i < markers.length) {
+            marker = markers[i];
+            google.maps.event.addListener(marker, "click", function() {
+              return $scope.map.panTo(this.getPosition());
+            });
+            i++;
+          }
+          userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
             icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png',
             animation: google.maps.Animation.DROP,
             map: $scope.map
+          });
+          google.maps.event.addListener(userMarker, "click", function() {
+            return $scope.map.panTo(userMarker.getPosition());
           });
           input = document.getElementById('searchbox-input');
           searchBox = new google.maps.places.SearchBox(input);
@@ -80,8 +92,7 @@
 					bounds.extend(place.geometry.location);
 				}
 				;
-            $scope.map.fitBounds(bounds);
-            return $scope.map.setZomm(15);
+            return $scope.map.fitBounds(bounds);
           });
         });
       }, $scope["class"] = 'list-down', $scope.changeListClass = function() {

@@ -4,6 +4,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 	latTab = []
 	lngTab = []
+	markers = []
 	i = 0
 
 	$http.get('bars.json').success((data) ->
@@ -55,22 +56,48 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					iconUrl, null, null, null, new google.maps.Size(34, 44)
 				)
 
+
 			while i < $scope.bars.length
-				marker = 
-					new google.maps.Marker(
-						position: new google.maps.LatLng(latTab[i], lngTab[i])
-						icon: markerIcon
-						map: $scope.map
-					)
+				markers[i] = 
+						new google.maps.Marker(
+							position: new google.maps.LatLng(latTab[i], lngTab[i])
+							icon: markerIcon
+							map: $scope.map
+						)
 				i++
 
-			marker =
+			i = 0
+			while i < markers.length
+				marker = markers[i]
+				google.maps.event.addListener marker, "click", ->
+					$scope.map.panTo this.getPosition()
+				i++
+
+
+			# google.maps.event.addListener markers[1], "click", ->
+			# 	while i < markers.length
+			# 		$scope.map.panTo markers[i].getPosition()
+			# 		i++
+
+			# i = 0
+			# bounds = new google.maps.LatLngBounds()
+
+			# while i < markers.length
+			# 	console.log markers[i].getPosition()
+			# 	i++
+
+			# $scope.map.fitBounds(bounds)
+
+			userMarker =
 				new google.maps.Marker(
 					position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
 					icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png'
 					animation: google.maps.Animation.DROP
 					map: $scope.map
 				)
+
+			google.maps.event.addListener userMarker, "click", ->
+				$scope.map.panTo userMarker.getPosition()
 
 
 			input = document.getElementById('searchbox-input')
@@ -88,7 +115,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 				`
 
 				$scope.map.fitBounds(bounds)
-				$scope.map.setZomm(15)
 
 	$scope.class = 'list-down'
 
