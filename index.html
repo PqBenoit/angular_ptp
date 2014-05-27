@@ -41,11 +41,12 @@
 			</div>
 			<div class="mobile-panel" id="map-container">
 				<div id="map">
-					<div class="wrapper">
-						<div class="row cf">
-							<div class="span">
-								<div class="location_indicator"></div>
-							</div>
+					<div id="wrapper">
+						<div id="move">
+							<div id="loader"></div>
+						</div>
+						<div id="logo">
+								<img src="img/logo.png">
 						</div>
 					</div>
 				</div>
@@ -55,8 +56,9 @@
 						<img src="img/toggle.png">
 					</div>
 					<ul>
-						<li ng-repeat='bar in bars'>
+						<li ng-repeat='bar in bars' class="bar-item">
 							<a href="#">
+								<!-- <span>{{distances[$index]}}</span> -->
 								<span class="name">{{bar.name}}</span>
 								<span class="price">{{bar.price}} €</span>
 							</a>

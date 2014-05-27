@@ -5,6 +5,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 	latTab = []
 	lngTab = []
 	markers = []
+	distance = []
 	i = 0
 
 	$http.get('bars.json').success((data) ->
@@ -56,16 +57,17 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					iconUrl, null, null, null, new google.maps.Size(34, 44)
 				)
 
-
 			while i < $scope.bars.length
 				markers[i] = 
-						new google.maps.Marker(
-							position: new google.maps.LatLng(latTab[i], lngTab[i])
-							icon: markerIcon
-							map: $scope.map
-						)
-					console.log getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]), $scope.bars[i]
+					new google.maps.Marker(
+						position: new google.maps.LatLng(latTab[i], lngTab[i])
+						icon: markerIcon
+						map: $scope.map
+					)
+				distance[i] = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])
 				i++
+
+			$scope.distances = distance
 
 			i = 0
 			while i < markers.length

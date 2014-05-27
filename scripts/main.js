@@ -5,10 +5,11 @@
 
   payetapinteApp.controller('MainCtrl', [
     '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
-      var deg2rad, getDistanceFromLatLonInKm, i, latTab, lngTab, markers;
+      var deg2rad, distance, getDistanceFromLatLonInKm, i, latTab, lngTab, markers;
       latTab = [];
       lngTab = [];
       markers = [];
+      distance = [];
       i = 0;
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
@@ -62,9 +63,10 @@
               icon: markerIcon,
               map: $scope.map
             });
-            console.log(getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]), $scope.bars[i]);
+            distance[i] = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]);
             i++;
           }
+          $scope.distances = distance;
           i = 0;
           while (i < markers.length) {
             marker = markers[i];

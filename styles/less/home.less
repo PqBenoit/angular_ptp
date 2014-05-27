@@ -60,67 +60,60 @@ html{
 
 				#map {
 					height: 100%;
+					width: 100%;
 					z-index: 100;
+					text-align: center;
+					
+					#wrapper {
+						margin: auto;
+						width: 30%;
+						height: 20%;
 
-					.wrapper {
-						text-align: center;
-						width: 100%;
-						height: 30%;
+						#move {
+							position: relative;
+							margin: auto;
+							width: 50%;
+							height: 70%;
+							top: 230%;
+							-webkit-animation:loading 1.5s linear infinite;
+							animation:loading 1.5s linear infinite;
 
-						.row {
-							width: 100%;
-							height: 100%;
+							#loader {
+								margin: auto;
+								width: 30px;
+								height: 30px;
+								border-radius: 100% 100% 100% 0;
+								box-shadow: 0px 0px 0px 2px @yellow;
+								-webkit-transform: rotate(-46deg);
+								-moz-transform: rotate(-46deg);
+								transform: rotate(-46deg);
+							}
+						}
 
-							.span {
-							
-								.location_indicator {
-									margin-top: 75%;
-									position: relative;
-								}
+						@-webkit-keyframes loading {
+							0% {top: 230%;}
+							50% {top: 240%;}
+							100% {top: 230%;}
+						}
 
-								.location_indicator:before, .location_indicator:after {
-									position: absolute;
-									content: '';
-								}
+						@keyframes loading {
+							0% {top: 230%;}
+							50% {top: 240%;}
+							100% {top: 230%;}
+						}
 
-								.location_indicator:before {
-									width: 20px;
-									height: 20px;
-									left: 47.5%;
-									border-radius: 100% 100% 100% 0;
-									box-shadow: 0px 0px 0px 2px rgba(255,255,255,1);
-									-webkit-animation: mapping 1s linear infinite;
-									-moz-animation: mapping 1s linear infinite;
-									animation: mapping 1s linear infinite;
-									-webkit-transform: rotate(-46deg);
-									-moz-transform: rotate(-46deg);
-									transform: rotate(-46deg);
-								}
+						#logo {
+							position: relative;
+							text-align: center;
+							top: 200%;
 
-								.location_indicator:after{
-									text-align: center;
-									width: 30px;
-									height: 10px;
-									border-radius: 100%;
-									left: 46%;
-									background-color: rgba(255, 255, 255, 0.5);
-									top: 24px;
-									z-index: 0;
-								}
-
-								@-webkit-keyframes mapping{
-									0% {top: 0;}
-									50%{top: -5px;}
-									100% {top:0; }
-								}
-								@-moz-keyframes mapping{
-									0% {top: 0;}
-									50%{top: -5px;}
-									100% {top:0; }
-								}
+							img {
+								width: 50%;
+								height: 50%;
 							}
 						}
 					}
+					
 				}
 
 				input {
@@ -134,10 +127,10 @@ html{
 				.list-up {
 					background-color: rgba(51, 51, 51, 0.6);
 					position: absolute;
-					height: 45%;
+					height: 35%;
 					width: 100%;
 					z-index: 150;
-					bottom: 0px;
+					bottom: 50px;
 					// overflow-y: auto;
 					transition: 0.2s;
 					-webkit-transform: translate3d(0,0,0);
@@ -147,7 +140,7 @@ html{
 						position: absolute;
 						width: 100%;
 						height: 20px;
-						top:0;
+						top:-20px;
 						left:0;
 						right:0;
 						z-index: 400;
@@ -168,6 +161,7 @@ html{
 						height:100%;
 						font-family: 'Montserrat';
 						background-color: rgba(51, 51, 51, 0.6);
+						margin: 0;
 
 						li {
 							border-bottom: solid 1px rgba(136,136,136,0.6);
@@ -222,123 +216,6 @@ html{
 						display: none;
 					}
 				}
-
-
-				// .list-up {
-				// 	position: absolute;
-				// 	z-index: 150;
-				// 	bottom: 50px;
-				// 	width: 100%;
-				// 	height: 27.5%;
-				// 	overflow-y: auto;
-				// 	background-color: rgba(51, 51, 51, 0.5);
-				// 	transition: 0.2s;
-
-				// 	p {
-				// 		text-align: center;
-				// 	}
-
-				// 	#toggle {
-				// 		background-color: #333333;
-				// 		height: 20px;
-				// 		width: 100%;
-				// 		z-index: 400;
-				// 		border-bottom: solid 1px rgba(136,136,136,1);
-				// 		position: fixed;
-				// 	}
-
-				// 	ul {
-				// 		margin: 0;
-				// 		padding: 0;
-				// 		padding-top: 20px;
-				// 		list-style: none;
-				// 		font-family: 'Montserrat';
-
-				// 		li {
-				// 			border-bottom: solid 1px rgba(136,136,136,0.6);
-
-				// 			a{
-				// 				display:table;
-				// 				width:100%;
-				// 				padding: 10px;
-				// 				color:#fff;
-				// 				font-size:14px;
-								
-				// 				.price,.name {
-				// 					display:table-cell;
-				// 				}
-
-				// 				.name {
-				// 					color: @yellow;
-				// 				}
-
-				// 				.price{
-				// 					text-align: right;
-				// 				}
-				// 			}
-				// 		}
-				// 	}
-				// }
-				
-				// .list-down {
-				// 	position: absolute;
-				// 	z-index: 150;
-				// 	bottom: -40%;
-				// 	width: 100%;
-				// 	height: 27.5%;
-				// 	overflow-y: auto;
-				// 	background-color: rgba(51, 51, 51, 0.5);
-				// 	transition: 0.2s;
-
-				// 	ul {
-				// 		height: 0%;
-				// 	}
-
-				// 	// p {
-				// 	// 	text-align: center;
-				// 	// }
-
-				// 	// #toggle {
-				// 	// 	background-color: #333333;
-				// 	// 	height: 20px;
-				// 	// 	width: 100%;
-				// 	// 	z-index: 400;
-				// 	// 	border-bottom: solid 1px rgba(136,136,136,1);
-				// 	// 	position: fixed;
-				// 	// }
-
-				// 	// ul {
-				// 	// 	margin: 0;
-				// 	// 	padding: 0;
-				// 	// 	padding-top: 20px;
-				// 	// 	list-style: none;
-				// 	// 	font-family: 'Montserrat';
-
-				// 	// 	li {
-				// 	// 		border-bottom: solid 1px rgba(136,136,136,0.6);
-
-				// 	// 		a{
-				// 	// 			display:table;
-				// 	// 			width:100%;
-				// 	// 			padding: 10px;
-				// 	// 			color:#fff;
-				// 	// 			font-size:14px;
-								
-				// 	// 			.price,.name {
-				// 	// 				display:table-cell;
-				// 	// 			}
-
-				// 	// 			.name {
-				// 	// 				color: @yellow;
-				// 	// 			}
-
-				// 	// 			.price{
-				// 	// 				text-align: right;
-				// 	// 			}
-				// 	// 		}
-				// 	// 	}
-				// 	// }
-				// }
 			}
 			
 			#list-container {
