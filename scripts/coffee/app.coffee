@@ -52,7 +52,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 			$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
 
-			iconUrl = 'https://raw.githubusercontent.com/PqBenoit/angular_ptp/gh-pages/img/picker.png'
+			iconUrl = 'https://dl.dropboxusercontent.com/u/107483353/picker.png'
 
 			markerIcon =
 				new google.maps.MarkerImage(
