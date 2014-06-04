@@ -56,9 +56,14 @@
 						<img src="img/toggle.png">
 					</div>
 					<ul>
-						<li ng-repeat='bar in bars' class="bar-item">
+						<li 
+							ng-repeat='bar in bars' 
+							class="bar-item" 
+							ng-click="centerMap(bar)"
+						>
 							<a href="#">
-								<!-- <span>{{distances[$index]}}</span> -->
+								<span>{{distances[$index]}}</span>
+								<!-- <span>{{$index}}</span> -->
 								<span class="name">{{bar.name}}</span>
 								<span class="price">{{bar.price}} €</span>
 							</a>
@@ -72,6 +77,7 @@
 					<ul>
 						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
 							<a href="#">
+								<span>{{bar.distance}}</span>
 								<span class="name">{{bar.name}}</span>
 								<span class="price">{{bar.price}} €</span>
 							</a>

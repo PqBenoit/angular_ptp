@@ -11,6 +11,9 @@
       markers = [];
       distance = [];
       i = 0;
+      $scope.centerMap = function(bar) {
+        return new google.maps.LatLng(bar.lattitude, bar.longitude);
+      };
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
         while (i < data.length) {
@@ -55,7 +58,7 @@
             overviewMapControl: false
           };
           $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-          iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png';
+          iconUrl = '../www/img/picker.png';
           markerIcon = new google.maps.MarkerImage(iconUrl, null, null, null, new google.maps.Size(34, 44));
           while (i < $scope.bars.length) {
             markers[i] = new google.maps.Marker({
@@ -63,7 +66,7 @@
               icon: markerIcon,
               map: $scope.map
             });
-            distance[i] = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]);
+            $scope.bars[i].distance = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]);
             i++;
           }
           $scope.distances = distance;
@@ -75,6 +78,11 @@
             });
             i++;
           }
+          $('.bar-item').click(function() {
+            var lat;
+            lat = $('.bar-item').attr("data-lat");
+            return console.log(lat);
+          });
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
             icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png',

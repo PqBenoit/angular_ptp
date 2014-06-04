@@ -8,6 +8,8 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 	distance = []
 	i = 0
 
+	$scope.centerMap = (bar) ->
+		new google.maps.LatLng(bar.lattitude, bar.longitude)
 	$http.get('bars.json').success((data) ->
 		$scope.bars = data
 
@@ -50,7 +52,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 			$scope.map = new google.maps.Map(document.getElementById('map'), mapOptions)
 
-			iconUrl = 'http://payetapinte.fr/assets/img/icons/marker.png'
+			iconUrl = '../www/img/picker.png'
 
 			markerIcon =
 				new google.maps.MarkerImage(
@@ -64,12 +66,13 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 						icon: markerIcon
 						map: $scope.map
 					)
-				distance[i] = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])
+				$scope.bars[i].distance = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])
 				i++
 
 			$scope.distances = distance
 
 			i = 0
+
 			while i < markers.length
 				marker = markers[i]
 				google.maps.event.addListener marker, "click", ->
@@ -90,6 +93,10 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			# 	i++
 
 			# $scope.map.fitBounds(bounds)
+			
+			$('.bar-item').click ->
+				lat = $('.bar-item').attr("data-lat")
+				console.log lat
 
 			userMarker =
 				new google.maps.Marker(
@@ -101,7 +108,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 			google.maps.event.addListener userMarker, "click", ->
 				$scope.map.panTo userMarker.getPosition()
-
 
 			input = document.getElementById('searchbox-input')
 
