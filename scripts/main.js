@@ -58,7 +58,7 @@
             overviewMapControl: false
           };
           $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-          iconUrl = 'https://dl.dropboxusercontent.com/u/107483353/assets/picker.png';
+          iconUrl = 'https://dl.dropboxusercontent.com/u/107483353/assets/picker%402x.png';
           markerIcon = new google.maps.MarkerImage(iconUrl, null, null, null, new google.maps.Size(34, 44));
           while (i < $scope.bars.length) {
             markers[i] = new google.maps.Marker({
@@ -85,7 +85,7 @@
           });
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
-            icon: 'http://payetapinte.fr/assets/img/icons/userMarker.png',
+            icon: 'https://www.dropbox.com/s/fb565gu9tmg8qm6/location%402x.png',
             animation: google.maps.Animation.DROP,
             map: $scope.map
           });
