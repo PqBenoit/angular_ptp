@@ -8,7 +8,7 @@ html{
 
 		.bar-tab {
 				z-index: 200;
-				background-color: #333333;
+				background-color: #222222;
 
 				.tab-item.active, .tab-item:active {
 					color: @yellow;
@@ -27,7 +27,7 @@ html{
 				display: table-cell;
 				width: 25.0%;
 				height: 100%;
-				background-color: #333333;
+				background-color: #222222;
 			}
 
 			#more {
@@ -42,7 +42,7 @@ html{
 
 				#add-bar {
 					background-color: #888888;
-					color: #333333;
+					color: #222222;
 				}
 
 				#fb-connect {
@@ -116,13 +116,73 @@ html{
 					
 				}
 
-				input {
+				#input_search {
 					position: absolute;
-					width: 100%;
-					top: 0;
-					left: 0;
+					width: 90%;
+					top: 2%;
+					left: 5%;
 					z-index: 400;
+					border: none;
+					border-radius: 3px;
+					box-shadow: 1px 1px 12px #555;
+					padding:3px 0;
+					font-family: 'Montserrat';
+					background-color: white;
+					text-align: center;
+					#searchbox{
+						margin:auto;
+						display:block;
+						span{
+							min-width:15%;
+						}
+						input{
+							border:none;
+							outline:none;
+							font-size:14px;
+							width:30%;
+							-webkit-transition: width 300ms ease-out;
+							-moz-transition: width 300ms ease-out;
+							-ms-transition: width 300ms ease-out;
+							-o-transition: width 300ms ease-out;
+							transition: width 300ms ease-out;
+							&:focus{
+								outline: 0;
+								width:88%;
+							}
+						}
+					}
 				}
+
+
+
+				// ::-webkit-input-placeholder { /* WebKit browsers */
+				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
+				// 	background-repeat: no-repeat;
+				// 	background-position: 42.5% center;
+				// 	font-size: 16px;
+				// 	text-align: center;
+				// }
+				// :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
+				// 	background-repeat: no-repeat;
+				// 	background-position: 42.5% center;
+				// 	font-size: 16px;
+				// 	text-align: center;
+				// }
+				// ::-moz-placeholder { /* Mozilla Firefox 19+ */
+				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
+				// 	background-repeat: no-repeat;
+				// 	background-position: 42.5% center;
+				// 	font-size: 16px;
+				// 	text-align: center;
+				// }
+				// :-ms-input-placeholder { /* Internet Explorer 10+ */
+				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
+				// 	background-repeat: no-repeat;
+				// 	background-position: 42.5% center;
+				// 	font-size: 16px;
+				// 	text-align: center;
+				// }
 
 				.list-up {
 					background-color: rgba(51, 51, 51, 0.6);
@@ -148,7 +208,7 @@ html{
 						// -moz-transform:translateZ(400);
 						// -o-transform:translateZ(400);
 						// transform:translateZ(400);
-						background-color: #333333;
+						background-color: #222222;
 						text-align: center;
 						border-bottom: solid 1px rgba(136,136,136,1);
 
@@ -208,7 +268,7 @@ html{
 						// -moz-transform:translateZ(400);
 						// -o-transform:translateZ(400);
 						// transform:translateZ(400);
-						background-color: #333333;
+						background-color: #222222;
 						text-align: center;
 					}
 
@@ -222,7 +282,7 @@ html{
 				
 				input {
 					width: 100%;
-					background-color: #333333;
+					background-color: #222222;
 					border: none;
 					color: @yellow;
 					border-bottom: solid 1px #888888;

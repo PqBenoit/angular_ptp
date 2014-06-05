@@ -58,7 +58,7 @@
             overviewMapControl: false
           };
           $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-          iconUrl = 'https://dl.dropboxusercontent.com/u/107483353/picker.png';
+          iconUrl = 'https://dl.dropboxusercontent.com/u/107483353/assets/picker.png';
           markerIcon = new google.maps.MarkerImage(iconUrl, null, null, null, new google.maps.Size(34, 44));
           while (i < $scope.bars.length) {
             markers[i] = new google.maps.Marker({

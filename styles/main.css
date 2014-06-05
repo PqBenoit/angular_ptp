@@ -5,7 +5,7 @@ html body {
 }
 html body .bar-tab {
   z-index: 200;
-  background-color: #333333;
+  background-color: #222222;
 }
 html body .bar-tab .tab-item.active,
 html body .bar-tab .tab-item:active {
@@ -23,7 +23,7 @@ html body #main-container .mobile-panel {
   display: table-cell;
   width: 25.0%;
   height: 100%;
-  background-color: #333333;
+  background-color: #222222;
 }
 html body #main-container #more {
   text-align: center;
@@ -37,7 +37,7 @@ html body #main-container #more #fb-connect {
 }
 html body #main-container #more #add-bar {
   background-color: #888888;
-  color: #333333;
+  color: #222222;
 }
 html body #main-container #more #fb-connect {
   background-color: #3b5998;
@@ -111,12 +111,41 @@ html body #main-container #map-container #map #wrapper #logo img {
   width: 50%;
   height: 50%;
 }
-html body #main-container #map-container input {
+html body #main-container #map-container #input_search {
   position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
+  width: 90%;
+  top: 2%;
+  left: 5%;
   z-index: 400;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 1px 1px 12px #555;
+  padding: 3px 0;
+  font-family: 'Montserrat';
+  background-color: white;
+  text-align: center;
+}
+html body #main-container #map-container #input_search #searchbox {
+  margin: auto;
+  display: block;
+}
+html body #main-container #map-container #input_search #searchbox span {
+  min-width: 15%;
+}
+html body #main-container #map-container #input_search #searchbox input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 30%;
+  -webkit-transition: width 300ms ease-out;
+  -moz-transition: width 300ms ease-out;
+  -ms-transition: width 300ms ease-out;
+  -o-transition: width 300ms ease-out;
+  transition: width 300ms ease-out;
+}
+html body #main-container #map-container #input_search #searchbox input:focus {
+  outline: 0;
+  width: 88%;
 }
 html body #main-container #map-container .list-up {
   background-color: rgba(51, 51, 51, 0.6);
@@ -137,7 +166,7 @@ html body #main-container #map-container .list-up #toggle {
   left: 0;
   right: 0;
   z-index: 400;
-  background-color: #333333;
+  background-color: #222222;
   text-align: center;
   border-bottom: solid 1px #888888;
 }
@@ -185,7 +214,7 @@ html body #main-container #map-container .list-down #toggle {
   height: 20px;
   bottom: 50px;
   z-index: 400;
-  background-color: #333333;
+  background-color: #222222;
   text-align: center;
 }
 html body #main-container #map-container .list-down ul {
@@ -193,7 +222,7 @@ html body #main-container #map-container .list-down ul {
 }
 html body #main-container #list-container input {
   width: 100%;
-  background-color: #333333;
+  background-color: #222222;
   border: none;
   color: #ffe02d;
   border-bottom: solid 1px #888888;

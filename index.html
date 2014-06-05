@@ -20,18 +20,19 @@
 		<title>Paye ta Pinte</title>
 	</head>
 	<body ng-controller='MainCtrl'>
-	
+		
 		<nav class="bar bar-tab">
-			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}">
-				<span class="icon icon-more"></span>
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}" >
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-more.png">
 			</a>
 			<a class='tab-item' href="#" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}">
-				<span class='icon icon-map'><img src="img/map-nav.png"></span>
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-map.png">
 			</a>
 			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-25%,0,0)', transform: 'translate3d(-25%,0,0)' , transition: '0.3s'}">
-				<span class="icon icon-bars"></span>
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-list.png">
 			</a>
 		</nav>
+
 		<div id='main-container' ng-style="style">
 			<div class="mobile-panel" id="bar-detail">
 			</div>
@@ -39,6 +40,7 @@
 				<p id="add-bar">Ajoute un bar</p>
 				<p id="fb-connect">Facebook</p>
 			</div>
+
 			<div class="mobile-panel" id="map-container">
 				<div id="map">
 					<div id="wrapper">
@@ -50,7 +52,12 @@
 						</div>
 					</div>
 				</div>
-				<input id="searchbox-input" placeholder="City..">
+				<div id="input_search">
+					<div id="searchbox">
+						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png"></span>
+						<input id="searchbox-input" placeholder="Rechercher">
+					</div>
+				</div>
 				<div class='{{class}}'>
 					<div id="toggle" ng-click='changeListClass()'>
 						<img src="img/toggle.png">
@@ -71,6 +78,7 @@
 					</ul>
 				</div>
 			</div>
+
 			<div class="mobile-panel slide" id="list-container" >
 				<input ng-model='query' placeholder='Trouve un bar' ng-style='styyles'>
 				<div class="list">
@@ -86,17 +94,7 @@
 				</div>
 			</div>
 		</div>
-		<!-- <div id='map-container' ng-controller='MapCtrl'>
-			<div id='map'></div>
-		</div>
-		<div id="list-container" ng-controller='BarListCtrl'>
-			<input ng-model='query' placeholder='Search bar' autofocus='true'>
-			<ul>
-				<li ng-repeat="bar in bars | filter:query" >
-					{{bar.name}}
-				</li>
-			</ul>
-		</div> -->
+
 		<div class="mobile-container" id="bar-details">
 			
 		</div>
@@ -106,5 +104,6 @@
 		<script type="text/javascript">
 			app.initialize();
 		</script>
+
 	</body>
 </html>
