@@ -54,11 +54,11 @@
 				</div>
 				<div id="input_search">
 					<div id="searchbox">
-						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png"></span>
+						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png" width="11" height="11"></span>
 						<input id="searchbox-input" placeholder="Rechercher">
 					</div>
 				</div>
-				<div class='{{class}}'>
+				<!-- <div class='{{class}}'>
 					<div id="toggle" ng-click='changeListClass()'>
 						<img src="img/toggle.png">
 					</div>
@@ -70,12 +70,14 @@
 						>
 							<a href="#">
 								<span>{{distances[$index]}}</span>
-								<!-- <span>{{$index}}</span> -->
 								<span class="name">{{bar.name}}</span>
 								<span class="price">{{bar.price}} €</span>
 							</a>
 						</li>
 					</ul>
+				</div> -->
+				<div id="geolocalization" ng-click="centerMap()">
+					<img src="https://dl.dropboxusercontent.com/u/107483353/assets/location-icon%402x.png" width="40" height="40">
 				</div>
 			</div>
 

@@ -8,9 +8,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 	distance = []
 	i = 0
 
-	$scope.centerMap = (bar) ->
-		new google.maps.LatLng(bar.lattitude, bar.longitude)
-		
 	$http.get('bars.json').success((data) ->
 		$scope.bars = data
 
@@ -94,10 +91,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			# 	i++
 
 			# $scope.map.fitBounds(bounds)
-			
-			$('.bar-item').click ->
-				lat = $('.bar-item').attr("data-lat")
-				console.log lat
 
 			userMarker =
 				new google.maps.Marker(
@@ -108,6 +101,9 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 				)
 
 			google.maps.event.addListener userMarker, "click", ->
+				$scope.map.panTo userMarker.getPosition()
+
+			$scope.centerMap = () ->
 				$scope.map.panTo userMarker.getPosition()
 
 			input = document.getElementById('searchbox-input')

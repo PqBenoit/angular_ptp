@@ -11,9 +11,6 @@
       markers = [];
       distance = [];
       i = 0;
-      $scope.centerMap = function(bar) {
-        return new google.maps.LatLng(bar.lattitude, bar.longitude);
-      };
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
         while (i < data.length) {
@@ -78,11 +75,6 @@
             });
             i++;
           }
-          $('.bar-item').click(function() {
-            var lat;
-            lat = $('.bar-item').attr("data-lat");
-            return console.log(lat);
-          });
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
             icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png',
@@ -92,6 +84,9 @@
           google.maps.event.addListener(userMarker, "click", function() {
             return $scope.map.panTo(userMarker.getPosition());
           });
+          $scope.centerMap = function() {
+            return $scope.map.panTo(userMarker.getPosition());
+          };
           input = document.getElementById('searchbox-input');
           searchBox = new google.maps.places.SearchBox(input);
           return google.maps.event.addListener(searchBox, "places_changed", function() {
