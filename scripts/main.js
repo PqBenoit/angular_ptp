@@ -85,7 +85,7 @@
           });
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
-            icon: 'https://www.dropbox.com/s/fb565gu9tmg8qm6/location%402x.png',
+            icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png',
             animation: google.maps.Animation.DROP,
             map: $scope.map
           });
