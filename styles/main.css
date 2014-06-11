@@ -229,6 +229,35 @@ html body #main-container #map-container #geolocalization {
   left: 15px;
   z-index: 400;
 }
+html body #main-container #map-container .gm-style-iw {
+  width: 100% !important;
+  height: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  background-color: black !important;
+}
+html body #main-container #map-container .gm-style-iw div {
+  height: 50%;
+}
+html body #main-container #map-container .gm-style-iw div #window-container {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  height: 100%;
+}
+html body #main-container #map-container .gm-style-iw div #window-container div {
+  float: left;
+  height: 100%;
+}
+html body #main-container #map-container .gm-style-iw div #window-container #price-container {
+  background-color: #ffe02d;
+}
+html body #main-container #map-container .gm-style-iw div #window-container #details-container {
+  background-color: green;
+}
+html body #main-container #map-container .gm-style-iw div #window-container #window-arrow {
+  background-color: red;
+}
 html body #main-container #list-container input {
   width: 100%;
   background-color: #222222;

@@ -52,6 +52,7 @@ html{
 			}
 
 			#map-container {
+
 				height: 100%;
 				display: block;
 				position: absolute;
@@ -157,37 +158,6 @@ html{
 					}
 				}
 
-
-
-				// ::-webkit-input-placeholder { /* WebKit browsers */
-				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
-				// 	background-repeat: no-repeat;
-				// 	background-position: 42.5% center;
-				// 	font-size: 16px;
-				// 	text-align: center;
-				// }
-				// :-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
-				// 	background-repeat: no-repeat;
-				// 	background-position: 42.5% center;
-				// 	font-size: 16px;
-				// 	text-align: center;
-				// }
-				// ::-moz-placeholder { /* Mozilla Firefox 19+ */
-				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
-				// 	background-repeat: no-repeat;
-				// 	background-position: 42.5% center;
-				// 	font-size: 16px;
-				// 	text-align: center;
-				// }
-				// :-ms-input-placeholder { /* Internet Explorer 10+ */
-				// 	background: url('https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png');
-				// 	background-repeat: no-repeat;
-				// 	background-position: 42.5% center;
-				// 	font-size: 16px;
-				// 	text-align: center;
-				// }
-
 				.list-up {
 					background-color: rgba(51, 51, 51, 0.6);
 					position: absolute;
@@ -286,6 +256,49 @@ html{
 					bottom: 61px;
 					left: 15px;
 					z-index: 400;
+				}
+				
+				.gm-style-iw {
+					width: 100% !important;
+					height: 100% !important;
+					top: 0 !important;
+					left: 0 !important;
+					background-color: black !important;
+					
+					div {
+						height: 50%;
+
+						#window-container {
+							padding:0;
+							margin:0;
+							list-style-type:none;
+							height: 100%;
+
+							div {
+								float:left;
+								height: 100%;
+							}
+
+							#price-container {
+								// font-weight: 700;
+								// font-size: 28pt;
+								// background-color: #ffe02d;
+								// width: 20%;
+								// height: 100%;
+								// float: left;
+								background-color: #ffe02d;
+							}
+
+							#details-container {
+								// font-weight: 400;
+								background-color: green;
+							}
+
+							#window-arrow {
+								background-color: red;
+							}
+						}
+					}
 				}
 			}
 			

@@ -5,39 +5,119 @@
 
   payetapinteApp.controller('MainCtrl', [
     '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
-      var deg2rad, distance, getDistanceFromLatLonInKm, i, latTab, lngTab, markers;
+      var deg2rad, distance, getDistanceFromLatLonInKm, i, infoWindow, latTab, lngTab, markers;
       latTab = [];
       lngTab = [];
       markers = [];
       distance = [];
+      infoWindow = [];
       i = 0;
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
         while (i < data.length) {
           latTab[i] = data[i].latitude;
           lngTab[i] = data[i].longitude;
+          infoWindow[i] = new google.maps.InfoWindow({
+            content: data[i].name
+          });
           i++;
         }
         i = 0;
         return geolocation.getLocation().then(function(data) {
-          var featuresOpts, iconUrl, input, mapOptions, marker, markerIcon, searchBox, userMarker;
+          var featuresOpts, iconUrl, infowindow, input, mapOptions, marker, markerIcon, searchBox, userMarker;
           $scope.coords = {
             lat: data.coords.latitude,
             lng: data.coords.longitude
           };
           featuresOpts = [
             {
-              featureType: "water",
-              stylers: [
+              "featureType": "road",
+              "elementType": "labels.text.stroke",
+              "stylers": [
                 {
-                  color: "#8bc6fd"
+                  "visibility": "on"
+                }, {
+                  "color": "#ffffff"
                 }
               ]
             }, {
-              featureType: "landscape",
-              stylers: [
+              "featureType": "water",
+              "stylers": [
                 {
-                  color: "#ffffff"
+                  "visibility": "on"
+                }, {
+                  "color": "#73b6e6"
+                }
+              ]
+            }, {
+              "featureType": "road.highway",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }, {
+                  "color": "#ffffff"
+                }
+              ]
+            }, {
+              "featureType": "poi",
+              "stylers": [
+                {
+                  "visibility": "simplified"
+                }
+              ]
+            }, {
+              "featureType": "road",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }, {
+                  "color": "#808080"
+                }
+              ]
+            }, {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }, {
+                  "color": "#ffffff"
+                }
+              ]
+            }, {
+              "elementType": "labels.icon",
+              "stylers": [
+                {
+                  "visibility": "off"
+                }
+              ]
+            }, {
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#808080"
+                }, {
+                  "visibility": "on"
+                }, {
+                  "weight": 0.9
+                }
+              ]
+            }, {
+              "featureType": "landscape.natural",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }, {
+                  "color": "#c8df9f"
+                }
+              ]
+            }, {
+              "featureType": "landscape",
+              "stylers": [
+                {
+                  "visibility": "on"
+                }, {
+                  "color": "#e8e0d8"
                 }
               ]
             }
@@ -45,7 +125,7 @@
           mapOptions = {
             zoom: 14,
             center: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
-            mapTypeId: google.maps.MapTypeId.TERRAIN,
+            mapTypeId: google.maps.MapTypeId.ROAD,
             styles: featuresOpts,
             panControl: false,
             zoomControl: false,
@@ -61,17 +141,26 @@
             markers[i] = new google.maps.Marker({
               position: new google.maps.LatLng(latTab[i], lngTab[i]),
               icon: markerIcon,
-              map: $scope.map
+              map: $scope.map,
+              name: $scope.bars[i].name,
+              price: $scope.bars[i].price,
+              address: $scope.bars[i].address
             });
             $scope.bars[i].distance = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]);
             i++;
           }
           $scope.distances = distance;
           i = 0;
+          infowindow = new google.maps.InfoWindow();
           while (i < markers.length) {
             marker = markers[i];
             google.maps.event.addListener(marker, "click", function() {
-              return $scope.map.panTo(this.getPosition());
+              var content;
+              $scope.map.panTo(this.getPosition());
+              infowindow.close;
+              content = '<div id="window-container"> <div id="price-container"> <span>' + this.price + '€</span> </div> <div id="details-container"> <span>' + this.name + '</span></br> <span>' + this.address + '</span> </div> <div id="window-arrow"> <span> > </span> </div> </div>';
+              infowindow.setContent(content);
+              return infowindow.open($scope.map, this);
             });
             i++;
           }
@@ -84,12 +173,9 @@
           google.maps.event.addListener(userMarker, "click", function() {
             return $scope.map.panTo(userMarker.getPosition());
           });
-          $scope.centerMap = function() {
-            return $scope.map.panTo(userMarker.getPosition());
-          };
           input = document.getElementById('searchbox-input');
           searchBox = new google.maps.places.SearchBox(input);
-          return google.maps.event.addListener(searchBox, "places_changed", function() {
+          google.maps.event.addListener(searchBox, "places_changed", function() {
             var bounds, places;
             places = searchBox.getPlaces();
             bounds = new google.maps.LatLngBounds();
@@ -100,6 +186,9 @@
 				;
             return $scope.map.fitBounds(bounds);
           });
+          return $scope.centerMap = function() {
+            return $scope.map.panTo(userMarker.getPosition());
+          };
         });
       }, $scope["class"] = 'list-down', $scope.changeListClass = function() {
         if ($scope["class"] === 'list-up') {
