@@ -17,7 +17,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			latTab[i] = data[i].latitude
 			lngTab[i] = data[i].longitude
 			infoWindow[i] =
-				new google.maps.InfoWindow (
+				new InfoBubble (
 						content: data[i].name
 					)
 			i++
@@ -135,7 +135,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 			i = 0
 
-			infowindow = new google.maps.InfoWindow()
+			infowindow = new InfoBubble()
 
 			while i < markers.length
 				marker = markers[i]
@@ -144,17 +144,22 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					infowindow.close
 					content = 
 						'<div id="window-container">
-							<div id="price-container">
-								<span>' + this.price + '€</span>
+							<div id="price-div">
+								<span id="price">' + this.price + '€</span>
 							</div>
-							<div id="details-container">
-								<span id="name">' + this.name + '</span></br>
-								<span id="address">foofoofoofoo</span>
+							<div id="details">
+								<div id="vertical">
+									<p id="name">' + this.name + '</p>
+									<p id="address">' + this.address.split(",")[0] + '</p>
+								</div>
 							</div>
-							<div id="window-arrow">
-								<span> > </span>
+							<div id="arrow">
+								<p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
 							</div>
-						</div>' 
+						</div>'
+					infowindow.setMinHeight(30)
+					infowindow.setMaxHeight(50)
+					# infowindow.setBackgroundColor("transparent")
 					infowindow.setContent(content)
 					infowindow.open($scope.map, this)
 				i++

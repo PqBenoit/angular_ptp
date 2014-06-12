@@ -17,7 +17,7 @@
         while (i < data.length) {
           latTab[i] = data[i].latitude;
           lngTab[i] = data[i].longitude;
-          infoWindow[i] = new google.maps.InfoWindow({
+          infoWindow[i] = new InfoBubble({
             content: data[i].name
           });
           i++;
@@ -151,14 +151,16 @@
           }
           $scope.distances = distance;
           i = 0;
-          infowindow = new google.maps.InfoWindow();
+          infowindow = new InfoBubble();
           while (i < markers.length) {
             marker = markers[i];
             google.maps.event.addListener(marker, "click", function() {
               var content;
               $scope.map.panTo(this.getPosition());
               infowindow.close;
-              content = '<div id="window-container"> <div id="price-container"> <span>' + this.price + '€</span> </div> <div id="details-container"> <span id="name">' + this.name + '</span></br> <span id="address">foofoofoofoo</span> </div> <div id="window-arrow"> <span> > </span> </div> </div>';
+              content = '<div id="window-container"> <div id="price-div"> <span id="price">' + this.price + '€</span> </div> <div id="details"> <div id="vertical"> <p id="name">' + this.name + '</p> <p id="address">' + this.address.split(",")[0] + '</p> </div> </div> <div id="arrow"> <p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p> </div> </div>';
+              infowindow.setMinHeight(30);
+              infowindow.setMaxHeight(50);
               infowindow.setContent(content);
               return infowindow.open($scope.map, this);
             });

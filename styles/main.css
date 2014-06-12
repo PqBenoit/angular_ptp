@@ -229,47 +229,69 @@ html body #main-container #map-container #geolocalization {
   left: 15px;
   z-index: 400;
 }
-html body #main-container .gm-style-iw {
-  overflow: auto !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
+html body #main-container #window-container {
   background: -webkit-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
   background: -moz-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
   background: -ms-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
   background: linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
+  margin-top: -1px !important;
+  max-width: 350px !important;
 }
-html body #main-container .gm-style-iw #window-container {
-  margin-top: 15px;
-  overflow: auto;
-  height: 100%;
+html body #main-container #window-container #price-div,
+html body #main-container #window-container #details,
+html body #main-container #window-container #arrow {
+  font-family: 'Montserrat';
+  height: 51px;
+  float: left;
 }
-html body #main-container .gm-style-iw #window-container #price-container {
+html body #main-container #window-container #price-div {
   width: 20%;
-  font-family: 'Montserrat';
+  background-color: #ffe02d;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  display: table;
+}
+html body #main-container #window-container #price-div #price {
+  font-size: 12pt;
   font-weight: 700;
-  font-size: 16pt;
-  padding-top: 10px;
-  float: left;
+  display: table-cell;
+  vertical-align: middle;
 }
-html body #main-container .gm-style-iw #window-container #details-container {
+html body #main-container #window-container #details {
   width: 70%;
-  float: left;
+  background-color: white;
+  text-align: left;
+  display: table;
 }
-html body #main-container .gm-style-iw #window-container #details-container #name {
-  font-family: 'Montserrat';
-  font-size: 16pt;
-  font-weight: 300;
+html body #main-container #window-container #details #vertical {
+  display: table-cell;
+  vertical-align: middle;
 }
-html body #main-container .gm-style-iw #window-container #details-container #address {
-  font-family: 'Montserrat';
+html body #main-container #window-container #details #vertical #name {
+  margin: 0;
+  font-size: 12pt;
+  font-weight: 400;
+  padding-left: 10px;
+  line-height: 13px;
+  margin-bottom: 2px;
+  color: #222222;
+}
+html body #main-container #window-container #details #vertical #address {
   font-size: 8pt;
-  font-weight: 300;
+  font-weight: 400;
+  margin: 0;
+  line-height: 10px;
+  padding-left: 10px;
+  color: #8e8e93;
 }
-html body #main-container .gm-style-iw #window-container #window-arrow {
-  width: 10%;
-  overflow: hidden;
+html body #main-container #window-container #arrow {
+  background-color: white;
+  width: 5%;
+  display: table;
+}
+html body #main-container #window-container #arrow #img {
+  display: table-cell;
+  vertical-align: middle;
 }
 html body #main-container #list-container input {
   width: 100%;

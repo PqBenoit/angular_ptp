@@ -259,55 +259,112 @@ html{
 				}
 			}
 
-			.gm-style-iw {
-				overflow: auto !important;
-				top: 0 !important;
-				left: 0 !important;
-				width: 100% !important;
-				height: 100% !important;
+
+
+			#window-container {
 				background: -webkit-linear-gradient(left, @yellow 20%, white 20%) !important;
 				background: -moz-linear-gradient(left, @yellow 20%, white 20%) !important;
 				background: -ms-linear-gradient(left, @yellow 20%, white 20%) !important;
 				background: linear-gradient(left, @yellow 20%, white 20%) !important;
+				margin-top: -1px !important;
+				max-width: 350px !important;
 
+				#price-div, #details, #arrow {
+					font-family: 'Montserrat';
+					height: 51px;
+					float: left;
+				}
+				
+				#price-div {
+					width: 20%;
+					background-color: @yellow;
+					border-top-left-radius: 4px;
+					border-bottom-left-radius: 4px;
+					display: table;
 
-				#window-container {
-					margin-top: 15px;
-					overflow: auto;
-					height: 100%;
-
-					#price-container {
-						width: 20%;
-						font-family: 'Montserrat';
+					#price {
+						font-size: 12pt;
 						font-weight: 700;
-						font-size: 16pt;
-						padding-top: 10px;
-						float: left;
+						display: table-cell;
+						vertical-align: middle;
 					}
+				}
 
-					#details-container {
-						width: 70%;
-						float: left;
+				#details {
+					width: 70%;
+					background-color: white;
+					text-align: left;
+					display: table;
+
+					#vertical {
+						display: table-cell;
+						vertical-align: middle;
 
 						#name {
-							font-family: 'Montserrat';
-							font-size: 16pt; 
-							font-weight: 300;
+							margin: 0;
+							font-size: 12pt;
+							font-weight: 400;
+							padding-left: 10px;
+							line-height: 13px;
+							margin-bottom: 2px;
+							color: #222222
 						}
 
 						#address {
-							font-family: 'Montserrat';
 							font-size: 8pt;
-							font-weight: 300;
+							font-weight: 400;
+							margin: 0;
+							line-height: 10px;
+							padding-left: 10px;
+							color: #8e8e93
 						}
 					}
+				}
 
-					#window-arrow {
-						width: 10%;
-						overflow: hidden;
+				#arrow {
+					background-color: white;
+					width: 5%;
+					display: table;
+
+					#img {
+						display: table-cell;
+						vertical-align: middle;
 					}
 				}
-			}
+
+				}
+				// #price-container {
+				// 	width: 20%;
+				// 	font-family: 'Montserrat';
+				// 	font-weight: 700;
+				// 	font-size: 12pt;
+				// 	padding-top: 10px;
+				// 	float: left;
+				// }
+
+				// #details-container {
+				// 	width: 70%;
+				// 	float: left;
+				// 	text-align: left;
+
+				// 	#name {
+				// 		font-family: 'Montserrat';
+				// 		font-size: 12pt; 
+				// 		font-weight: 300;
+				// 	}
+
+				// 	#address {
+				// 		font-family: 'Montserrat';
+				// 		font-size: 7pt;
+				// 		font-weight: 300;
+				// 	}
+				// }
+
+				// #window-arrow {
+				// 	width: 10%;
+				// 	overflow: hidden;
+				// }
+
 
 			#list-container {
 				
