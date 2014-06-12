@@ -229,34 +229,47 @@ html body #main-container #map-container #geolocalization {
   left: 15px;
   z-index: 400;
 }
-html body #main-container #map-container .gm-style-iw {
-  width: 100% !important;
-  height: 100% !important;
+html body #main-container .gm-style-iw {
+  overflow: auto !important;
   top: 0 !important;
   left: 0 !important;
-  background-color: black !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: -webkit-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
+  background: -moz-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
+  background: -ms-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
+  background: linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
 }
-html body #main-container #map-container .gm-style-iw div {
-  height: 50%;
-}
-html body #main-container #map-container .gm-style-iw div #window-container {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
+html body #main-container .gm-style-iw #window-container {
+  margin-top: 15px;
+  overflow: auto;
   height: 100%;
 }
-html body #main-container #map-container .gm-style-iw div #window-container div {
+html body #main-container .gm-style-iw #window-container #price-container {
+  width: 20%;
+  font-family: 'Montserrat';
+  font-weight: 700;
+  font-size: 16pt;
+  padding-top: 10px;
   float: left;
-  height: 100%;
 }
-html body #main-container #map-container .gm-style-iw div #window-container #price-container {
-  background-color: #ffe02d;
+html body #main-container .gm-style-iw #window-container #details-container {
+  width: 70%;
+  float: left;
 }
-html body #main-container #map-container .gm-style-iw div #window-container #details-container {
-  background-color: green;
+html body #main-container .gm-style-iw #window-container #details-container #name {
+  font-family: 'Montserrat';
+  font-size: 16pt;
+  font-weight: 300;
 }
-html body #main-container #map-container .gm-style-iw div #window-container #window-arrow {
-  background-color: red;
+html body #main-container .gm-style-iw #window-container #details-container #address {
+  font-family: 'Montserrat';
+  font-size: 8pt;
+  font-weight: 300;
+}
+html body #main-container .gm-style-iw #window-container #window-arrow {
+  width: 10%;
+  overflow: hidden;
 }
 html body #main-container #list-container input {
   width: 100%;

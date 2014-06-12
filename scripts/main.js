@@ -158,7 +158,7 @@
               var content;
               $scope.map.panTo(this.getPosition());
               infowindow.close;
-              content = '<div id="window-container"> <div id="price-container"> <span>' + this.price + '€</span> </div> <div id="details-container"> <span>' + this.name + '</span></br> <span>' + this.address + '</span> </div> <div id="window-arrow"> <span> > </span> </div> </div>';
+              content = '<div id="window-container"> <div id="price-container"> <span>' + this.price + '€</span> </div> <div id="details-container"> <span id="name">' + this.name + '</span></br> <span id="address">foofoofoofoo</span> </div> <div id="window-arrow"> <span> > </span> </div> </div>';
               infowindow.setContent(content);
               return infowindow.open($scope.map, this);
             });

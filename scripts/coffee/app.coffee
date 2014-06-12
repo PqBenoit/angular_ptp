@@ -148,8 +148,8 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 								<span>' + this.price + '€</span>
 							</div>
 							<div id="details-container">
-								<span>' + this.name + '</span></br>
-								<span>' + this.address + '</span>
+								<span id="name">' + this.name + '</span></br>
+								<span id="address">foofoofoofoo</span>
 							</div>
 							<div id="window-arrow">
 								<span> > </span>
