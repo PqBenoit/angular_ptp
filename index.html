@@ -23,14 +23,14 @@
 	</head>
 	<body ng-controller='MainCtrl'>
 		
-		<nav class="bar bar-tab">
-			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}" >
+		<nav class="bar bar-tab" ng-init='currentnav = 2'>
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}; currentnav = 1" ng-class='{"current-nav" : currentnav == 1}'>
 				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-more%402x.png" width="20" height="4">
 			</a>
-			<a class='tab-item' href="#" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}">
+			<a class='tab-item' href="#" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}; currentnav = 2" ng-class='{"current-nav" : currentnav == 2}'>
 				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-map%402x.png" width="22" height="25">
 			</a>
-			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-25%,0,0)', transform: 'translate3d(-25%,0,0)' , transition: '0.3s'}">
+			<a class="tab-item" href="#" ng-click="style={'-webkit-transform': 'translate3d(-25%,0,0)', transform: 'translate3d(-25%,0,0)' , transition: '0.3s'}; currentnav = 3" ng-class='{"current-nav" : currentnav == 3}'>
 				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-list%402x.png" width="20" height="18">
 			</a>
 		</nav>

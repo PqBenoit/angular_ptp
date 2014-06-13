@@ -11,6 +11,9 @@ html body .bar-tab .tab-item.active,
 html body .bar-tab .tab-item:active {
   color: #ffe02d;
 }
+html body .bar-tab .current-nav {
+  border-bottom: solid 2px #ffe02d;
+}
 html body #main-container {
   position: absolute;
   width: 100%;
