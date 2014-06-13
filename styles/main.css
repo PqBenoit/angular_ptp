@@ -357,12 +357,14 @@ html body #main-container #list-container .list ul .bar-item {
   height: 50px;
 }
 html body #main-container #list-container .list ul .bar-item a {
+  height: 50px;
   width: 100%;
   color: #222222;
   font-size: 10pt;
   display: table;
 }
 html body #main-container #list-container .list ul .bar-item a .price-list {
+  padding: 0;
   display: table;
   font-weight: 700;
   height: 50px;
@@ -379,7 +381,12 @@ html body #main-container #list-container .list ul .bar-item a .price-list .pric
 html body #main-container #list-container .list ul .bar-item a .details-list {
   display: table-cell;
   vertical-align: middle;
-  width: 80%;
+  height: 50px;
+  width: 78%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  float: left;
 }
 html body #main-container #list-container .list ul .bar-item a .details-list .name {
   text-align: left;
@@ -396,4 +403,13 @@ html body #main-container #list-container .list ul .bar-item a .details-list .ad
   font-size: 8pt;
   color: #8e8e93;
   font-weight: 400;
+}
+html body #main-container #list-container .list ul .bar-item a .arrow {
+  height: 50px;
+  display: table;
+}
+html body #main-container #list-container .list ul .bar-item a .arrow .img {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 0;
 }
