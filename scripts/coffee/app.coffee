@@ -96,7 +96,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			]
 
 			mapOptions =
-				zoom: 14
+				zoom: 13
 				center: new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
 				mapTypeId: google.maps.MapTypeId.ROAD
 				styles: featuresOpts
@@ -117,6 +117,12 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 				)
 
 			while i < $scope.bars.length
+
+				if getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) > 1000
+					$scope.bars[i].distance = Number((getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) / 1000).toFixed(1)).toString() + " km"
+				else
+					$scope.bars[i].distance = (getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])).toString() + " m"
+
 				markers[i] = 
 					new google.maps.Marker (
 						position: new google.maps.LatLng(latTab[i], lngTab[i])
@@ -125,16 +131,10 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 						name: $scope.bars[i].name
 						price: $scope.bars[i].price
 						address: $scope.bars[i].address
+						distance: $scope.bars[i].distance
 					)
 
-				if getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) > 1000
-					$scope.bars[i].distance = Number((getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) / 1000).toFixed(1)).toString() + " km"
-				else
-					$scope.bars[i].distance = (getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])).toString() + " m"
-
 				i++
-
-			$scope.distances = distance
 
 			i = 0
 
@@ -158,8 +158,8 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 							</div>
 							<div id="details">
 								<div id="vertical">
-									<p id="name">' + (this.name) + '</p>
-									<p id="address">' + this.address.split(",")[0] + '</p>
+									<p id="name">' + this.name + '</p>
+									<p id="address">à ' + this.distance + ' - ' + this.address.split(",")[0] + '</p>
 								</div>
 							</div>
 							<div id="arrow">
@@ -183,18 +183,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					map: $scope.map
 				)
 
-			circleOptions =
-				center: userMarker.position
-				map: $scope.map
-				radius: 100
-				strokeColor: "#6e9ae6"
-				strokeOpacity: 0.6
-				strokeWeight: 2
-				fillColor: "#6e9ae6"
-				fillOpacity: 0.3
-
-			userCircle = new google.maps.Circle(circleOptions)
-
 			google.maps.event.addListener userMarker, "click", ->
 				$scope.map.panTo userMarker.getPosition()
 
@@ -213,7 +201,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 				`
 
 				$scope.map.fitBounds(bounds)
-				$scope.map.setZoom(14)
+				$scope.map.setZoom(13)
 
 			$scope.centerMap = () ->
 				$scope.map.panTo userMarker.getPosition()

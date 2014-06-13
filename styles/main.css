@@ -292,6 +292,7 @@ html body #main-container #window-container #arrow {
 html body #main-container #window-container #arrow #img {
   display: table-cell;
   vertical-align: middle;
+  line-height: 0;
 }
 html body #main-container #list-container input {
   width: 100%;
