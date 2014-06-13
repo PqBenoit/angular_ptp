@@ -24,7 +24,7 @@
         }
         i = 0;
         return geolocation.getLocation().then(function(data) {
-          var featuresOpts, iconUrl, infowindow, input, mapOptions, marker, markerIcon, searchBox, userMarker;
+          var circleOptions, featuresOpts, iconUrl, infowindow, input, mapOptions, marker, markerIcon, searchBox, userCircle, userMarker;
           $scope.coords = {
             lat: data.coords.latitude,
             lng: data.coords.longitude
@@ -146,7 +146,11 @@
               price: $scope.bars[i].price,
               address: $scope.bars[i].address
             });
-            $scope.bars[i].distance = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]);
+            if (getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) > 1000) {
+              $scope.bars[i].distance = Number((getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) / 1000).toFixed(1)).toString() + " km";
+            } else {
+              $scope.bars[i].distance = (getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])).toString() + " m";
+            }
             i++;
           }
           $scope.distances = distance;
@@ -156,11 +160,18 @@
             marker = markers[i];
             google.maps.event.addListener(marker, "click", function() {
               var content;
+              if (this.name.length >= 15) {
+                this.name = this.name.substring(0, 15) + '...';
+              } else {
+                this.name = this.name;
+              }
               $scope.map.panTo(this.getPosition());
               infowindow.close;
               content = '<div id="window-container"> <div id="price-div"> <span id="price">' + this.price + '€</span> </div> <div id="details"> <div id="vertical"> <p id="name">' + this.name + '</p> <p id="address">' + this.address.split(",")[0] + '</p> </div> </div> <div id="arrow"> <p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p> </div> </div>';
               infowindow.setMinHeight(30);
               infowindow.setMaxHeight(50);
+              infowindow.setMinWidth(220);
+              infowindow.setMaxWidth(220);
               infowindow.setContent(content);
               return infowindow.open($scope.map, this);
             });
@@ -168,10 +179,21 @@
           }
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
-            icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png',
+            icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x18x18.png',
             animation: google.maps.Animation.DROP,
             map: $scope.map
           });
+          circleOptions = {
+            center: userMarker.position,
+            map: $scope.map,
+            radius: 100,
+            strokeColor: "#6e9ae6",
+            strokeOpacity: 0.6,
+            strokeWeight: 2,
+            fillColor: "#6e9ae6",
+            fillOpacity: 0.3
+          };
+          userCircle = new google.maps.Circle(circleOptions);
           google.maps.event.addListener(userMarker, "click", function() {
             return $scope.map.panTo(userMarker.getPosition());
           });
@@ -186,7 +208,8 @@
 					bounds.extend(place.geometry.location);
 				}
 				;
-            return $scope.map.fitBounds(bounds);
+            $scope.map.fitBounds(bounds);
+            return $scope.map.setZoom(14);
           });
           return $scope.centerMap = function() {
             return $scope.map.panTo(userMarker.getPosition());

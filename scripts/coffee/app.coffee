@@ -127,7 +127,10 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 						address: $scope.bars[i].address
 					)
 
-				$scope.bars[i].distance = getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])
+				if getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) > 1000
+					$scope.bars[i].distance = Number((getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i]) / 1000).toFixed(1)).toString() + " km"
+				else
+					$scope.bars[i].distance = (getDistanceFromLatLonInKm(data.coords.latitude, data.coords.longitude, latTab[i], lngTab[i])).toString() + " m"
 
 				i++
 
@@ -140,6 +143,12 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			while i < markers.length
 				marker = markers[i]
 				google.maps.event.addListener marker, "click", ->
+
+					if this.name.length >= 15 
+						this.name = (this.name).substring(0, 15) + '...'
+					else
+						this.name = this.name
+
 					$scope.map.panTo this.getPosition()
 					infowindow.close
 					content = 
@@ -149,7 +158,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 							</div>
 							<div id="details">
 								<div id="vertical">
-									<p id="name">' + this.name + '</p>
+									<p id="name">' + (this.name) + '</p>
 									<p id="address">' + this.address.split(",")[0] + '</p>
 								</div>
 							</div>
@@ -159,18 +168,32 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 						</div>'
 					infowindow.setMinHeight(30)
 					infowindow.setMaxHeight(50)
+					infowindow.setMinWidth(220)
+					infowindow.setMaxWidth(220)
 					# infowindow.setBackgroundColor("transparent")
 					infowindow.setContent(content)
 					infowindow.open($scope.map, this)
 				i++
 
 			userMarker =
-				new google.maps.Marker(
+				new google.maps.Marker (
 					position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-					icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png'
+					icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x18x18.png'
 					animation: google.maps.Animation.DROP
 					map: $scope.map
 				)
+
+			circleOptions =
+				center: userMarker.position
+				map: $scope.map
+				radius: 100
+				strokeColor: "#6e9ae6"
+				strokeOpacity: 0.6
+				strokeWeight: 2
+				fillColor: "#6e9ae6"
+				fillOpacity: 0.3
+
+			userCircle = new google.maps.Circle(circleOptions)
 
 			google.maps.event.addListener userMarker, "click", ->
 				$scope.map.panTo userMarker.getPosition()
@@ -190,6 +213,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 				`
 
 				$scope.map.fitBounds(bounds)
+				$scope.map.setZoom(14)
 
 			$scope.centerMap = () ->
 				$scope.map.panTo userMarker.getPosition()

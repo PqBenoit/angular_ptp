@@ -245,7 +245,7 @@ html body #main-container #window-container #arrow {
   float: left;
 }
 html body #main-container #window-container #price-div {
-  width: 20%;
+  width: 50px;
   background-color: #ffe02d;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -258,7 +258,7 @@ html body #main-container #window-container #price-div #price {
   vertical-align: middle;
 }
 html body #main-container #window-container #details {
-  width: 70%;
+  width: 150px;
   background-color: white;
   text-align: left;
   display: table;
@@ -271,7 +271,7 @@ html body #main-container #window-container #details #vertical #name {
   margin: 0;
   font-size: 12pt;
   font-weight: 400;
-  padding-left: 10px;
+  padding-left: 7px;
   line-height: 13px;
   margin-bottom: 2px;
   color: #222222;
@@ -281,12 +281,12 @@ html body #main-container #window-container #details #vertical #address {
   font-weight: 400;
   margin: 0;
   line-height: 10px;
-  padding-left: 10px;
+  padding-left: 7px;
   color: #8e8e93;
 }
 html body #main-container #window-container #arrow {
   background-color: white;
-  width: 5%;
+  width: 20px;
   display: table;
 }
 html body #main-container #window-container #arrow #img {
@@ -348,11 +348,15 @@ html body #main-container #list-container .list ul .bar-item a {
   font-size: 14px;
 }
 html body #main-container #list-container .list ul .bar-item a .price,
-html body #main-container #list-container .list ul .bar-item a .name {
+html body #main-container #list-container .list ul .bar-item a .name,
+html body #main-container #list-container .list ul .bar-item a .distancec {
   display: table-cell;
 }
+html body #main-container #list-container .list ul .bar-item a .distance {
+  text-align: left;
+}
 html body #main-container #list-container .list ul .bar-item a .name {
-  color: #ffe02d;
+  text-align: center;
 }
 html body #main-container #list-container .list ul .bar-item a .price {
   text-align: right;

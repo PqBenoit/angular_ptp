@@ -5,6 +5,7 @@
 		<meta name="format-detection" content="telephone=no" />
 		<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
 		<script type="text/javascript" src="scripts/infobubble.js"></script>
 		<script type="text/javascript" src="scripts/angular/angular.js"></script>
 		<script type="text/javascript" src="scripts/angular/angularjs-geolocation.min.js"></script>
@@ -97,7 +98,7 @@
 					<ul>
 						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
 							<a href="#">
-								<span>{{bar.distance}}</span>
+								<span class="distance">{{bar.distance}}</span>
 								<span class="name">{{bar.name}}</span>
 								<span class="price">{{bar.price}} €</span>
 							</a>
