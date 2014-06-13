@@ -36,22 +36,93 @@ html{
 
 			#more {
 				text-align: center;
+				height: 100%;
 
-				#add-bar, #fb-connect {
-					width: 80%;
-					height: 10%;
-					margin-top: 50%;
-					margin: auto;
-				}
+				#more-container {
+					display: table;
+					height: 100%;
+					width: 100%;
+					background-color: #efeff4;
 
-				#add-bar {
-					background-color: #888888;
-					color: #222222;
-				}
+					#profile-picture {
+						margin-top: 50px;
+						margin-bottom: 50px;
 
-				#fb-connect {
-					background-color: #3b5998;
-					color: #888888;
+						#img-prfl {
+							img {
+								border-radius: 50%;
+							}
+						}
+
+						p {
+							font-family: 'Montserrat';
+							font-size: 14pt;
+							font-weight: 400;
+							color: #222222;
+						}
+					}
+
+					#bottom-line {
+						height: 1px;
+						width: 100%;
+						background-color: rgba(136,136,136,0.4);
+					}
+
+					.more-cat {
+						height: 50px;
+						width: 100%;
+						background-color: #ffffff;
+
+						.left-div {
+							width: 50px;
+							height: 50px;
+							background-color: @yellow;
+							display: table;
+							float: left;
+
+							p {
+								display: table-cell;
+								vertical-align: middle;
+								font-family: 'Montserrat';
+								font-size: 20pt;
+								font-weight: 400;
+								color: #222222;
+								line-height: 0;
+							}
+						}
+
+						.middle-div {
+							width: 78%;
+							height: 50px;
+							display: table;
+							float: left;
+
+							p {
+								padding-left: 10px;
+								text-align: left;
+								display: table-cell;
+								vertical-align: middle;
+								font-family: 'Montserrat';
+								font-size: 12pt;
+								font-weight: 400;
+								color: #222222;
+								line-height: 0;
+							}
+						}
+
+						.right-div {
+							height: 50px;
+							display: table;
+							float: right;
+							padding-right: 10px;
+
+							p {
+								display: table-cell;
+								vertical-align: middle;
+								line-height: 0;
+							}
+						}
+					}
 				}
 			}
 
@@ -458,6 +529,8 @@ html{
 								.arrow {
 									height: 50px;
 									display: table;
+									float: right;
+									padding-right: 10px;
 
 									.img {
 										display: table-cell;

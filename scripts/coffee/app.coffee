@@ -178,7 +178,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					infowindow.setMaxHeight(50)
 					infowindow.setMinWidth(220)
 					infowindow.setMaxWidth(220)
-					# infowindow.setBackgroundColor("transparent")
 					infowindow.setContent(content)
 					infowindow.open($scope.map, this)
 				i++

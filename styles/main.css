@@ -30,21 +30,80 @@ html body #main-container .mobile-panel {
 }
 html body #main-container #more {
   text-align: center;
+  height: 100%;
 }
-html body #main-container #more #add-bar,
-html body #main-container #more #fb-connect {
-  width: 80%;
-  height: 10%;
-  margin-top: 50%;
-  margin: auto;
+html body #main-container #more #more-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+  background-color: #efeff4;
 }
-html body #main-container #more #add-bar {
-  background-color: #888888;
+html body #main-container #more #more-container #profile-picture {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+html body #main-container #more #more-container #profile-picture #img-prfl img {
+  border-radius: 50%;
+}
+html body #main-container #more #more-container #profile-picture p {
+  font-family: 'Montserrat';
+  font-size: 14pt;
+  font-weight: 400;
   color: #222222;
 }
-html body #main-container #more #fb-connect {
-  background-color: #3b5998;
-  color: #888888;
+html body #main-container #more #more-container #bottom-line {
+  height: 1px;
+  width: 100%;
+  background-color: rgba(136, 136, 136, 0.4);
+}
+html body #main-container #more #more-container .more-cat {
+  height: 50px;
+  width: 100%;
+  background-color: #ffffff;
+}
+html body #main-container #more #more-container .more-cat .left-div {
+  width: 50px;
+  height: 50px;
+  background-color: #ffe02d;
+  display: table;
+  float: left;
+}
+html body #main-container #more #more-container .more-cat .left-div p {
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Montserrat';
+  font-size: 20pt;
+  font-weight: 400;
+  color: #222222;
+  line-height: 0;
+}
+html body #main-container #more #more-container .more-cat .middle-div {
+  width: 78%;
+  height: 50px;
+  display: table;
+  float: left;
+}
+html body #main-container #more #more-container .more-cat .middle-div p {
+  padding-left: 10px;
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Montserrat';
+  font-size: 12pt;
+  font-weight: 400;
+  color: #222222;
+  line-height: 0;
+}
+html body #main-container #more #more-container .more-cat .right-div {
+  height: 50px;
+  display: table;
+  float: right;
+  padding-right: 10px;
+}
+html body #main-container #more #more-container .more-cat .right-div p {
+  display: table-cell;
+  vertical-align: middle;
+  line-height: 0;
 }
 html body #main-container #map-container {
   height: 100%;
@@ -407,6 +466,8 @@ html body #main-container #list-container .list ul .bar-item a .details-list .ad
 html body #main-container #list-container .list ul .bar-item a .arrow {
   height: 50px;
   display: table;
+  float: right;
+  padding-right: 10px;
 }
 html body #main-container #list-container .list ul .bar-item a .arrow .img {
   display: table-cell;
