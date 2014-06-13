@@ -7,7 +7,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 	markers = []
 	distance = []
 	infoWindow = []
-
+	$scope.shortName = []
 	i = 0
 
 	$http.get('bars.json').success((data) ->
@@ -16,6 +16,14 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 		while i < data.length
 			latTab[i] = data[i].latitude
 			lngTab[i] = data[i].longitude
+			
+			if $scope.bars[i].name.length >= 23
+				$scope.bars[i].name = $scope.bars[i].name.substring(0, 20) + '...'
+			else
+				$scope.bars[i].name = $scope.bars[i].name
+
+			console.log $scope.shortName[i]
+			
 			infoWindow[i] =
 				new InfoBubble (
 						content: data[i].name
@@ -182,7 +190,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					animation: google.maps.Animation.DROP
 					map: $scope.map
 				)
-				
+
 			google.maps.event.addListener userMarker, "click", ->
 				$scope.map.panTo userMarker.getPosition()
 

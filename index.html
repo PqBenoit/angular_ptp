@@ -93,14 +93,24 @@
 			</div>
 
 			<div class="mobile-panel slide" id="list-container" >
-				<input ng-model='query' placeholder='Trouve un bar' ng-style='styyles'>
+				<div id="input_search_bar">
+					<div id="searchbox_bar">
+						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png" width="11" height="11"></span>
+						<input id="searchbox-input" placeholder="Rechercher un bar" ng-model='query'>
+					</div>
+				</div>
 				<div class="list">
 					<ul>
 						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
 							<a href="#">
-								<span class="distance">{{bar.distance}}</span>
-								<span class="name">{{bar.name}}</span>
-								<span class="price">{{bar.price}} €</span>
+								<!-- <span class="distance">{{bar.distance}}</span> -->
+								<div class="price-list">
+									<span class="price">{{bar.price}}€</span>
+								</div>
+								<div class="details-list">
+									<p class="name">{{bar.name}}<span> - à {{bar.distance}}</span></p>
+									<span class="address-bar">{{bar.address.split(",")[0]}}</span>
+								</div>
 							</a>
 						</li>
 					</ul>

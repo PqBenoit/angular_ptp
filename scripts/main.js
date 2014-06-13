@@ -11,12 +11,19 @@
       markers = [];
       distance = [];
       infoWindow = [];
+      $scope.shortName = [];
       i = 0;
       return $http.get('bars.json').success(function(data) {
         $scope.bars = data;
         while (i < data.length) {
           latTab[i] = data[i].latitude;
           lngTab[i] = data[i].longitude;
+          if ($scope.bars[i].name.length >= 23) {
+            $scope.bars[i].name = $scope.bars[i].name.substring(0, 20) + '...';
+          } else {
+            $scope.bars[i].name = $scope.bars[i].name;
+          }
+          console.log($scope.shortName[i]);
           infoWindow[i] = new InfoBubble({
             content: data[i].name
           });

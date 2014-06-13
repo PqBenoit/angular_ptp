@@ -233,10 +233,10 @@ html body #main-container #map-container #geolocalization {
   z-index: 400;
 }
 html body #main-container #window-container {
-  background: -webkit-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
-  background: -moz-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
-  background: -ms-linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
-  background: linear-gradient(left, #ffe02d 20%, #ffffff 20%) !important;
+  background: -webkit-linear-gradient(left, #ffe02d 50px, #ffffff 50px) !important;
+  background: -moz-linear-gradient(left, #ffe02d 50px, #ffffff 50px) !important;
+  background: -ms-linear-gradient(left, #ffe02d 50px, #ffffff 50px) !important;
+  background: linear-gradient(left, #ffe02d 50px, #ffffff 50px) !important;
   margin-top: -1px !important;
   max-width: 350px !important;
 }
@@ -297,42 +297,53 @@ html body #main-container #window-container #arrow #img {
   vertical-align: middle;
   line-height: 0;
 }
-html body #main-container #list-container input {
-  width: 100%;
-  background-color: #222222;
+html body #main-container #list-container #input_search_bar {
+  position: absolute;
+  width: 90%;
+  top: 2%;
+  left: 5%;
+  z-index: 400;
   border: none;
-  color: #ffe02d;
-  border-bottom: solid 1px #888888;
-  font-size: 20px;
+  border-radius: 3px;
+  box-shadow: 1px 1px 12px #555;
+  padding: 3px 0;
   font-family: 'Montserrat';
-  padding: 10px;
-  padding-bottom: 5px;
+  background-color: white;
 }
-html body #main-container #list-container input:focus {
+html body #main-container #list-container #input_search_bar #searchbox_bar {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+html body #main-container #list-container #input_search_bar #searchbox_bar span {
+  min-width: 15%;
+  padding-top: 2px;
+}
+html body #main-container #list-container #input_search_bar #searchbox_bar input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  width: 150px;
+  text-align: center;
+  -webkit-transition: width 300ms ease-out;
+  -moz-transition: width 300ms ease-out;
+  -ms-transition: width 300ms ease-out;
+  -o-transition: width 300ms ease-out;
+  transition: width 300ms ease-out;
+}
+html body #main-container #list-container #input_search_bar #searchbox_bar input:focus {
+  text-align: left;
   outline: 0;
-}
-html body #main-container #list-container ::-webkit-input-placeholder {
-  /* WebKit browsers */
-  color: #888888;
-}
-html body #main-container #list-container :-moz-placeholder {
-  /* Mozilla Firefox 4 to 18 */
-  color: #888888;
-}
-html body #main-container #list-container ::-moz-placeholder {
-  /* Mozilla Firefox 19+ */
-  color: #888888;
-}
-html body #main-container #list-container :-ms-input-placeholder {
-  /* Internet Explorer 10+ */
-  color: #888888;
+  width: 85%;
 }
 html body #main-container #list-container .list {
+  top: 50px;
   left: 0;
   right: 0;
   height: 90%;
   position: absolute;
   overflow-y: auto;
+  background-color: white;
 }
 html body #main-container #list-container .list ul {
   height: 100%;
@@ -343,25 +354,46 @@ html body #main-container #list-container .list ul {
 }
 html body #main-container #list-container .list ul .bar-item {
   border-bottom: solid 1px rgba(136, 136, 136, 0.4);
+  height: 50px;
 }
 html body #main-container #list-container .list ul .bar-item a {
-  display: table;
   width: 100%;
-  padding: 10px;
-  color: #fff;
-  font-size: 14px;
+  color: #222222;
+  font-size: 10pt;
+  display: table;
 }
-html body #main-container #list-container .list ul .bar-item a .price,
-html body #main-container #list-container .list ul .bar-item a .name,
-html body #main-container #list-container .list ul .bar-item a .distancec {
+html body #main-container #list-container .list ul .bar-item a .price-list {
+  display: table;
+  font-weight: 700;
+  height: 50px;
+  width: 50px;
+  border-bottom: solid 1px rgba(136, 136, 136, 0.4);
+  background-color: #ffe02d;
+  float: left;
+}
+html body #main-container #list-container .list ul .bar-item a .price-list .price {
   display: table-cell;
-}
-html body #main-container #list-container .list ul .bar-item a .distance {
-  text-align: left;
-}
-html body #main-container #list-container .list ul .bar-item a .name {
+  vertical-align: middle;
   text-align: center;
 }
-html body #main-container #list-container .list ul .bar-item a .price {
-  text-align: right;
+html body #main-container #list-container .list ul .bar-item a .details-list {
+  display: table-cell;
+  vertical-align: middle;
+  width: 80%;
+}
+html body #main-container #list-container .list ul .bar-item a .details-list .name {
+  text-align: left;
+  font-weight: 400;
+  color: #222222;
+  line-height: 1;
+  margin: 0;
+}
+html body #main-container #list-container .list ul .bar-item a .details-list .name span {
+  font-size: 8pt;
+  color: #8e8e93;
+}
+html body #main-container #list-container .list ul .bar-item a .details-list .address-bar {
+  font-size: 8pt;
+  color: #8e8e93;
+  font-weight: 400;
 }
