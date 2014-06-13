@@ -24,7 +24,7 @@
         }
         i = 0;
         return geolocation.getLocation().then(function(data) {
-          var featuresOpts, iconUrl, infowindow, input, mapOptions, marker, markerIcon, searchBox, userIcon, userMarker;
+          var featuresOpts, iconUrl, infowindow, input, mapOptions, marker, markerIcon, searchBox, userMarker;
           $scope.coords = {
             lat: data.coords.latitude,
             lng: data.coords.longitude
@@ -177,10 +177,9 @@
             });
             i++;
           }
-          userIcon = new google.maps.MarkerImage(("https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png", new google.map.Size(17, 17)));
           userMarker = new google.maps.Marker({
             position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude),
-            icon: userIcon,
+            icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x18x18.png',
             animation: google.maps.Animation.DROP,
             map: $scope.map
           });

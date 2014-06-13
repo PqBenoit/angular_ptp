@@ -175,19 +175,14 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					infowindow.open($scope.map, this)
 				i++
 
-			userIcon = 
-				new google.maps.MarkerImage (
-					"https://dl.dropboxusercontent.com/u/107483353/assets/location%402x.png"
-					new google.map.Size(17,17)
-				)
 			userMarker =
 				new google.maps.Marker (
 					position: new google.maps.LatLng(data.coords.latitude, data.coords.longitude)
-					icon: userIcon
+					icon: 'https://dl.dropboxusercontent.com/u/107483353/assets/location%402x18x18.png'
 					animation: google.maps.Animation.DROP
 					map: $scope.map
 				)
-
+				
 			google.maps.event.addListener userMarker, "click", ->
 				$scope.map.panTo userMarker.getPosition()
 
