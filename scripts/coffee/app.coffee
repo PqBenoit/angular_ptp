@@ -1,6 +1,6 @@
 payetapinteApp = angular.module('payetapinteApp', ['ngRoute', 'ngAnimate', 'geolocation'])
 
-payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope',($scope, $http, geolocation, $routeParams, $rootScope) ->
+payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope', ($scope, $http, geolocation, $routeParams, $rootScope) ->
 
 	latTab = []
 	lngTab = []
@@ -22,8 +22,6 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			else
 				$scope.bars[i].name = $scope.bars[i].name
 
-			console.log $scope.shortName[i]
-			
 			infoWindow[i] =
 				new InfoBubble (
 						content: data[i].name
@@ -31,6 +29,12 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 			i++
 
 		i = 0
+
+		# $scope.barName = $routeParams.barName
+
+		# for bar in $scope.bars
+		# 	if bar.name = barName
+		# 		$scope.bar = bar
 
 		geolocation.getLocation().then (data) ->
 			$scope.coords =
@@ -161,18 +165,20 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					infowindow.close
 					content = 
 						'<div id="window-container">
-							<div id="price-div">
-								<span id="price">' + this.price + '€</span>
-							</div>
-							<div id="details">
-								<div id="vertical">
-									<p id="name">' + this.name + '</p>
-									<p id="address">à ' + this.distance + ' - ' + this.address.split(",")[0] + '</p>
+							<a href="#/' + this.name + '">
+								<div id="price-div">
+									<span id="price">' + this.price + '€</span>
 								</div>
-							</div>
-							<div id="arrow">
-								<p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
-							</div>
+								<div id="details">
+									<div id="vertical">
+										<p id="name">' + this.name + '</p>
+										<p id="address">à ' + this.distance + ' - ' + this.address.split(",")[0] + '</p>
+									</div>
+								</div>
+								<div id="arrow">
+									<p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
+								</div>
+							</a>
 						</div>'
 					infowindow.setMinHeight(30)
 					infowindow.setMaxHeight(50)
@@ -233,6 +239,29 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 
 	deg2rad = (deg) ->
 		deg * (Math.PI / 180)
-
 	)
 ]
+
+payetapinteApp.controller 'BarDetailCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope', ($scope, $http, geolocation, $routeParams, $rootScope) ->
+
+	$http.get('bars.json').success((data) ->
+		$scope.bars = data
+
+		$scope.barName = $routeParams.barName
+	
+		for bar in $scope.bars
+				if bar.name = $scope.barName
+					$scope.currentBar = bar
+	)
+
+]
+
+payetapinteApp.config(['$routeProvider', ($routeProvider) ->
+	$routeProvider.when('/',
+		templateUrl: 'partials/bar-list.html',
+		controller: 'MainCtrl'
+		).when('/:barName',
+		templateUrl:'partials/bar-details.html',
+		controller: 'BarDetailCtrl'
+		)
+])

@@ -1,0 +1,141 @@
+<nav class="bar bar-tab" ng-init='currentnav = 2'>
+			<a class="tab-item" href="" ng-click="style={'-webkit-transform': 'translate3d(25%,0,0)', transform: 'translate3d(25%,0,0)' , transition: '0.3s'}; currentnav = 1" ng-class='{"current-nav" : currentnav == 1}'>
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-more%402x.png" width="20" height="4">
+			</a>
+			<a class='tab-item' href="" ng-click="style={'-webkit-transform': 'translate3d(0,0,0)', transform: 'translate3d(0,0,0)' , transition: '0.3s'}; currentnav = 2" ng-class='{"current-nav" : currentnav == 2}'>
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-map%402x.png" width="22" height="25">
+			</a>
+			<a class="tab-item" href="" ng-click="style={'-webkit-transform': 'translate3d(-25%,0,0)', transform: 'translate3d(-25%,0,0)' , transition: '0.3s'}; currentnav = 3" ng-class='{"current-nav" : currentnav == 3}'>
+				<img src="https://dl.dropboxusercontent.com/u/107483353/assets/icon-list%402x.png" width="20" height="18">
+			</a>
+		</nav>
+
+		<div id='main-container' ng-style="style">
+			<div class="mobile-panel" id="bar-detail">
+			</div>
+			<div class="mobile-panel" id="more">
+				<div id="more-container">
+					<div id="profile-picture">
+						<p id="img-prfl">
+							<img src="https://pbs.twimg.com/profile_images/1738054090/Phil_5e_Forum_11_02_2011_400x400.jpg" width='120' height='120'>
+						</p>
+						<p>Connectez-vous !</p>
+					</div>
+					<div id="bottom-line">
+					</div>
+					<div class="more-cat">
+						<div class="left-div">
+							<p>+</p>
+						</div>
+						<div class="middle-div">
+							<p>Suggérez un bar</p>
+						</div>
+						<div class="right-div">
+							<p><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
+						</div>
+					</div>
+					<div id="bottom-line">
+					</div>
+					<div class="more-cat">
+						<div class="left-div">
+							<p>></p>
+						</div>
+						<div class="middle-div">
+							<p>Contactez l'équipe</p>
+						</div>
+						<div class="right-div">
+							<p><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
+						</div>
+					</div>
+					<div id="bottom-line">
+					</div>
+				</div>
+			</div>
+
+			<div class="mobile-panel" id="map-container">
+				<div id="map">
+					<div id="wrapper">
+						<div id="move">
+							<div id="loader"></div>
+						</div>
+						<div id="logo">
+								<img src="img/logo.png">
+						</div>
+					</div>
+				</div>
+				<div id="input_search">
+					<div id="searchbox">
+						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png" width="11" height="11"></span>
+						<input id="searchbox-input" placeholder="Rechercher">
+					</div>
+				</div>
+				
+				<!-- *********** -->
+
+				<!-- TOGGLE LIST -->
+
+				<!-- <div class='{{class}}'>
+					<div id="toggle" ng-click='changeListClass()'>
+						<img src="img/toggle.png">
+					</div>
+					<ul>
+						<li 
+							ng-repeat='bar in bars' 
+							class="bar-item" 
+							ng-click="centerMap(bar)"
+						>
+							<a href="#">
+								<span>{{distances[$index]}}</span>
+								<span class="name">{{bar.name}}</span>
+								<span class="price">{{bar.price}} €</span>
+							</a>
+						</li>
+					</ul>
+				</div> -->
+
+				<!-- *********** -->
+
+
+				<div id="geolocalization" ng-click="centerMap()">
+					<img src="https://dl.dropboxusercontent.com/u/107483353/assets/location-icon%402x.png" width="32" height="32">
+				</div>
+			</div>
+
+			<div class="mobile-panel slide" id="list-container" >
+				<div id="input_search_bar">
+					<div id="searchbox_bar">
+						<span><img src="https://dl.dropboxusercontent.com/u/107483353/assets/magn-glass.png" width="11" height="11"></span>
+						<input id="searchbox-input" placeholder="Rechercher un bar" ng-model='query'>
+					</div>
+				</div>
+				<div class="list">
+					<ul>
+						<li class='bar-item' ng-repeat='bar in bars | filter:query'>
+							<a href="#/{{bar.name}}">
+								<!-- <span class="distance">{{bar.distance}}</span> -->
+								<div class="price-list">
+									<span class="price">{{bar.price}}€</span>
+								</div>
+								<div class="details-list">
+									<p class="name">{{bar.name}}<span> - à {{bar.distance}}</span></p>
+									<span class="address-bar">{{bar.address.split(",")[0]}}</span>
+								</div>
+								<div class="arrow">
+									<p class="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="mobile-container" id="bar-details">
+			
+		</div>
+
+		<script type="text/javascript" src="scripts/ratchet.js"></script>
+		<script type="text/javascript" src="scripts/index.js"></script>
+		<script type="text/javascript">
+			app.initialize();
+		</script>
