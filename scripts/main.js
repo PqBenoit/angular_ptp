@@ -173,7 +173,7 @@
               }
               $scope.map.panTo(this.getPosition());
               infowindow.close;
-              content = '<div id="window-container"> <a href="#/' + this.name + '"> <div id="price-div"> <span id="price">' + this.price + '€</span> </div> <div id="details"> <div id="vertical"> <p id="name">' + this.name + '</p> <p id="address">à ' + this.distance + ' - ' + this.address.split(",")[0] + '</p> </div> </div> <div id="arrow"> <p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p> </div> </a> </div>';
+              content = '<div id="window-container"> <div id="price-div"> <span id="price">' + this.price + '€</span> </div> <div id="details"> <div id="vertical"> <p id="name">' + this.name + '</p> <p id="address">à ' + this.distance + ' - ' + this.address.split(",")[0] + '</p> </div> </div> <div id="arrow"> <p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p> </div> </div>';
               infowindow.setMinHeight(30);
               infowindow.setMaxHeight(50);
               infowindow.setMinWidth(220);
@@ -216,6 +216,14 @@
         } else {
           return $scope["class"] = 'list-up';
         }
+      }, $scope.showBarDiv = function() {}, $scope.showBar = function($event, bar) {
+        $event.preventDefault();
+        $scope.style = {
+          '-webkit-transform': 'translate3d(-25%,0,0)',
+          transform: 'translate3d(-25%,0,0)',
+          transition: '0.3s'
+        };
+        return $scope.currentBar = bar;
       }, getDistanceFromLatLonInKm = function(lat1, lon1, lat2, lon2) {
         var R, a, c, d, dLat, dLon;
         R = 6371;
@@ -231,35 +239,11 @@
     }
   ]);
 
-  payetapinteApp.controller('BarDetailCtrl', [
-    '$scope', '$http', 'geolocation', '$routeParams', '$rootScope', function($scope, $http, geolocation, $routeParams, $rootScope) {
-      return $http.get('bars.json').success(function(data) {
-        var bar, _i, _len, _ref, _results;
-        $scope.bars = data;
-        $scope.barName = $routeParams.barName;
-        _ref = $scope.bars;
-        _results = [];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          bar = _ref[_i];
-          if (bar.name = $scope.barName) {
-            _results.push($scope.currentBar = bar);
-          } else {
-            _results.push(void 0);
-          }
-        }
-        return _results;
-      });
-    }
-  ]);
-
   payetapinteApp.config([
     '$routeProvider', function($routeProvider) {
       return $routeProvider.when('/', {
         templateUrl: 'partials/bar-list.html',
         controller: 'MainCtrl'
-      }).when('/:barName', {
-        templateUrl: 'partials/bar-details.html',
-        controller: 'BarDetailCtrl'
       });
     }
   ]);

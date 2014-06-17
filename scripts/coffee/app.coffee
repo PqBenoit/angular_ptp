@@ -165,7 +165,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 					infowindow.close
 					content = 
 						'<div id="window-container">
-							<a href="#/' + this.name + '">
+
 								<div id="price-div">
 									<span id="price">' + this.price + '€</span>
 								</div>
@@ -178,7 +178,7 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 								<div id="arrow">
 									<p id="img"><img src="https://dl.dropboxusercontent.com/u/107483353/assets/arrow%402x.png" width="9" height="13"></p>
 								</div>
-							</a>
+
 						</div>'
 					infowindow.setMinHeight(30)
 					infowindow.setMaxHeight(50)
@@ -227,7 +227,16 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 		else
 			$scope.class = 'list-up'
 
+	$scope.showBarDiv = ->
 
+
+	$scope.showBar = ($event, bar) ->
+		$event.preventDefault()
+		$scope.style =
+			'-webkit-transform': 'translate3d(-25%,0,0)'
+			transform: 'translate3d(-25%,0,0)'
+			transition: '0.3s'
+		$scope.currentBar = bar
 	getDistanceFromLatLonInKm = (lat1, lon1, lat2, lon2) ->
 		R = 6371
 		dLat = deg2rad(lat2 - lat1)
@@ -242,26 +251,24 @@ payetapinteApp.controller 'MainCtrl', ['$scope', '$http', 'geolocation', '$route
 	)
 ]
 
-payetapinteApp.controller 'BarDetailCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope', ($scope, $http, geolocation, $routeParams, $rootScope) ->
+# payetapinteApp.controller 'BarDetailCtrl', ['$scope', '$http', 'geolocation', '$routeParams', '$rootScope', ($scope, $http, geolocation, $routeParams, $rootScope) ->
 
-	$http.get('bars.json').success((data) ->
-		$scope.bars = data
+# 	$http.get('bars.json').success((data) ->
+# 		$scope.bars = data
 
-		$scope.barName = $routeParams.barName
-	
-		for bar in $scope.bars
-				if bar.name = $scope.barName
-					$scope.currentBar = bar
-	)
+# 		$scope.barName = $routeParams.barName
 
-]
+# 	)
+
+# ]
 
 payetapinteApp.config(['$routeProvider', ($routeProvider) ->
 	$routeProvider.when('/',
 		templateUrl: 'partials/bar-list.html',
-		controller: 'MainCtrl'
-		).when('/:barName',
-		templateUrl:'partials/bar-details.html',
-		controller: 'BarDetailCtrl'
-		)
+		controller: 'MainCtrl')
+	# 	).
+	# when('/:barName',
+	# 	templateUrl:'partials/bar-details.html',
+	# 	controller: 'BarDetailCtrl'
+	# 	)
 ])

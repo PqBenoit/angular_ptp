@@ -299,41 +299,37 @@ html body #main-container #window-container {
   margin-top: -1px !important;
   max-width: 350px !important;
 }
-html body #main-container #window-container a {
-  width: 100%;
-  height: 100%;
-}
-html body #main-container #window-container a #price-div,
-html body #main-container #window-container a #details,
-html body #main-container #window-container a #arrow {
+html body #main-container #window-container #price-div,
+html body #main-container #window-container #details,
+html body #main-container #window-container #arrow {
   font-family: 'Montserrat';
   height: 51px;
   float: left;
 }
-html body #main-container #window-container a #price-div {
+html body #main-container #window-container #price-div {
   width: 50px;
   background-color: #ffe02d;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
   display: table;
 }
-html body #main-container #window-container a #price-div #price {
+html body #main-container #window-container #price-div #price {
   font-size: 12pt;
   font-weight: 700;
   display: table-cell;
   vertical-align: middle;
 }
-html body #main-container #window-container a #details {
+html body #main-container #window-container #details {
   width: 150px;
   background-color: white;
   text-align: left;
   display: table;
 }
-html body #main-container #window-container a #details #vertical {
+html body #main-container #window-container #details #vertical {
   display: table-cell;
   vertical-align: middle;
 }
-html body #main-container #window-container a #details #vertical #name {
+html body #main-container #window-container #details #vertical #name {
   margin: 0;
   font-size: 12pt;
   font-weight: 400;
@@ -342,7 +338,7 @@ html body #main-container #window-container a #details #vertical #name {
   margin-bottom: 2px;
   color: #222222;
 }
-html body #main-container #window-container a #details #vertical #address {
+html body #main-container #window-container #details #vertical #address {
   font-size: 8pt;
   font-weight: 400;
   margin: 0;
@@ -350,12 +346,12 @@ html body #main-container #window-container a #details #vertical #address {
   padding-left: 7px;
   color: #8e8e93;
 }
-html body #main-container #window-container a #arrow {
+html body #main-container #window-container #details #arrow {
   background-color: white;
   width: 20px;
   display: table;
 }
-html body #main-container #window-container a #arrow #img {
+html body #main-container #window-container #details #arrow #img {
   display: table-cell;
   vertical-align: middle;
   line-height: 0;
@@ -478,6 +474,6 @@ html body #main-container #list-container .list ul .bar-item a .arrow .img {
   vertical-align: middle;
   line-height: 0;
 }
-html body #main-container #bar-details {
+html body #main-container #bar-detail {
   background-color: red;
 }
